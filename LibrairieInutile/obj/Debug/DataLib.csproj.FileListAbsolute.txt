@@ -1,0 +1,5 @@
+d:\documents\visual studio 2010\Projects\ducking-bear\LibrairieInutile\bin\Debug\LibrairieInutile.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\LibrairieInutile\bin\Debug\LibrairieInutile.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\LibrairieInutile\obj\Debug\ResolveAssemblyReference.cache
+d:\documents\visual studio 2010\Projects\ducking-bear\LibrairieInutile\obj\Debug\LibrairieInutile.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\LibrairieInutile\obj\Debug\LibrairieInutile.pdb
