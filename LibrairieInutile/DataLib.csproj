@@ -8,8 +8,8 @@
     <ProjectGuid>{D8CC4DB4-ADC0-4476-928A-745952E3F269}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LibrairieInutile</RootNamespace>
-    <AssemblyName>LibrairieInutile</AssemblyName>
+    <RootNamespace>DataLib</RootNamespace>
+    <AssemblyName>DataLib</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LibrairieInutile.cs" />
+    <Compile Include="Album.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

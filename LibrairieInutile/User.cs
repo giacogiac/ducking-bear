@@ -1,16 +1,17 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace DataLib
 {
-    public class LibrairieInutile
+    public class User
     {
-        public static void EcrireCoucou()
+        int id;
+
+        public User(int userId)
         {
-            Console.WriteLine("coucou");
+            id = userId;
         }
     }
 }
