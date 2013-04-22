@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Image]
+    ADD CONSTRAINT [FK_Image_Album] FOREIGN KEY ([album]) REFERENCES [dbo].[Album] ([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

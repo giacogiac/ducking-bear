@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.IO;
+
 
 namespace WebService
 {
@@ -13,17 +15,18 @@ namespace WebService
     public interface IService1
     {
 
-        [OperationContract]
-        string GetData(int value);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+                String UploadImage(Stream image);
+        [OperationContract]
+                Stream DownloadImage(String name);
+
 
         // TODO: ajoutez vos opérations de service ici
     }
 
 
-    // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
+/*    // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
     [DataContract]
     public class CompositeType
     {
@@ -43,5 +46,5 @@ namespace WebService
             get { return stringValue; }
             set { stringValue = value; }
         }
-    }
+    }*/
 }

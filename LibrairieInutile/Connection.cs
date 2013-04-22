@@ -24,6 +24,10 @@ namespace DataLib
             return new User(0);
         }
        
+        public SqlConnection getSqlCon()
+        {
+           return sqlCon; 
+        }
         public List<User> getAllUsers()
         {
             return new List<User>();
