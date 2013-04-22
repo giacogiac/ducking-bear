@@ -11,7 +11,7 @@ namespace DataLib
     {
         int id;
         User owner;
-
+        
         public Album(int albumId, User owner)
         {
             id = albumId;
@@ -20,6 +20,9 @@ namespace DataLib
 
         public void addImage(String imageID, byte[] image)
         {
+            Connection connec = new Connection("server", "database");
+            SqlConnection sqlCon = connec.getSqlCon();
+
             try
             {
                 // connexion au serveur
@@ -51,6 +54,9 @@ namespace DataLib
         public byte[] getImage(String imageID)
         {
             byte[] blob = null;
+            Connection connec = new Connection("server", "database");
+            SqlConnection sqlCon = connec.getSqlCon();
+
             try
             {
                 // connexion au serveur
