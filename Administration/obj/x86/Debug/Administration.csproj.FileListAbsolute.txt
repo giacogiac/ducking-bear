@@ -1,7 +1,0 @@
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\Administration.exe
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\Administration.pdb
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\obj\x86\Debug\ResolveAssemblyReference.cache
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\obj\x86\Debug\Administration.exe
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\obj\x86\Debug\Administration.pdb
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\LibrairieInutile.dll
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\LibrairieInutile.pdb
