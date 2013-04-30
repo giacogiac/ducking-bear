@@ -1,0 +1,8 @@
+D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database_Script.PreDeployment.sql
+D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database_Script.PostDeployment.sql
+D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database_Database.sqlsettings
+D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database_Database.sqldeployment
+D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database_Database.sqlcmdvars
+D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database.deploymanifest
+D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database.dbschema
+D:\Cours\Serv_Entr\ducking-bear\Database\obj\Debug\Database.dbschema

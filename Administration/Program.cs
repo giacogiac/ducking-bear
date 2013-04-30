@@ -12,11 +12,16 @@ namespace Administration
         //TEST SUR L'UPLOAD D'UNE IMAGE ( voir enoncé 2 )
         static void Main(string[] args)
         {
+            /*TestReference1.Service1Client test = new TestReference1.Service1Client();
+            Console.WriteLine(test.GetData(1));*/
+
+            
+            Console.Out.WriteLine("Début utilisation service");
             // Instanciation de la référence de service 
             ImageTransfertServiceReference.Service1Client imageTransfertService =
                 new ImageTransfertServiceReference.Service1Client();
-            MemoryStream imageStream = new
-            MemoryStream(lireFichier(@"c:\fichier.jpg"));
+            MemoryStream imageStream = new MemoryStream(lireFichier(@"c:\batman.bmp"));
+            Console.Out.WriteLine("Début upload");
             // Appel de notre web method 
             imageTransfertService.UploadImage(imageStream);
             Console.Out.WriteLine("Transfert Terminé");

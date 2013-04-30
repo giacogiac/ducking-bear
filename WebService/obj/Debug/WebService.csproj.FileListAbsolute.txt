@@ -1,3 +1,7 @@
+D:\Cours\Serv_Entr\ducking-bear\WebService\bin\WebService.dll
+D:\Cours\Serv_Entr\ducking-bear\WebService\bin\WebService.pdb
+D:\Cours\Serv_Entr\ducking-bear\WebService\bin\DataLib.dll
+D:\Cours\Serv_Entr\ducking-bear\WebService\bin\DataLib.pdb
 D:\Cours\Serv_Entr\ducking-bear\WebService\obj\Debug\ResolveAssemblyReference.cache
 D:\Cours\Serv_Entr\ducking-bear\WebService\obj\Debug\WebService.dll
 D:\Cours\Serv_Entr\ducking-bear\WebService\obj\Debug\WebService.pdb

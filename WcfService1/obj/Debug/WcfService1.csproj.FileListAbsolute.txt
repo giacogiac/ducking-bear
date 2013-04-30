@@ -1,0 +1,5 @@
+D:\Cours\Serv_Entr\ducking-bear\WcfService1\bin\WcfService1.dll
+D:\Cours\Serv_Entr\ducking-bear\WcfService1\bin\WcfService1.pdb
+D:\Cours\Serv_Entr\ducking-bear\WcfService1\obj\Debug\ResolveAssemblyReference.cache
+D:\Cours\Serv_Entr\ducking-bear\WcfService1\obj\Debug\WcfService1.dll
+D:\Cours\Serv_Entr\ducking-bear\WcfService1\obj\Debug\WcfService1.pdb

@@ -1,0 +1,5 @@
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\ClientWeb.dll
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\ClientWeb.pdb
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ResolveAssemblyReference.cache
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ClientWeb.dll
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ClientWeb.pdb

@@ -7,20 +7,23 @@ using System.Data;
 
 namespace DataLib
 {
-    class Album
+    public class Album
     {
         int id;
         User owner;
+        String server = "X064";
+        String database = "ducking-bear-db";
         
         public Album(int albumId, User owner)
         {
-            id = albumId;
+            this.id = albumId;
             this.owner = owner;
         }
 
         public void addImage(String imageID, byte[] image)
         {
-            Connection connec = new Connection("server", "database");
+            Console.Out.WriteLine("Start to upload image");
+            Connection connec = new Connection(server, database);
             SqlConnection sqlCon = connec.getSqlCon();
 
             try
@@ -36,7 +39,7 @@ namespace DataLib
                 ajoutImage.Parameters.Add("@blob", SqlDbType.Image, image.Length).Value
                 = image;
                 ajoutImage.Parameters.Add("@size", SqlDbType.Int).Value = image.Length;
-                ajoutImage.Parameters.Add("@album", SqlDbType.Int).Value = 0;
+                ajoutImage.Parameters.Add("@album", SqlDbType.Int).Value = id;
                 // execution de la requête
                 ajoutImage.ExecuteNonQuery();
             }
@@ -53,8 +56,9 @@ namespace DataLib
 
         public byte[] getImage(String imageID)
         {
+            Console.Out.WriteLine("Start to download image");
             byte[] blob = null;
-            Connection connec = new Connection("server", "database");
+            Connection connec = new Connection(server, database);
             SqlConnection sqlCon = connec.getSqlCon();
 
             try
