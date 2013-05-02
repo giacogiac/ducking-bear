@@ -1,5 +1,0 @@
-D:\Cours\Serv_Entr\ducking-bear\LibrairieInutile\bin\Debug\DataLib.dll
-D:\Cours\Serv_Entr\ducking-bear\LibrairieInutile\bin\Debug\DataLib.pdb
-D:\Cours\Serv_Entr\ducking-bear\LibrairieInutile\obj\Debug\ResolveAssemblyReference.cache
-D:\Cours\Serv_Entr\ducking-bear\LibrairieInutile\obj\Debug\DataLib.dll
-D:\Cours\Serv_Entr\ducking-bear\LibrairieInutile\obj\Debug\DataLib.pdb
