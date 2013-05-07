@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D0157C3D-AC7C-4DE3-9AE7-9339025421C6}</ProjectGuid>
+    <ProjectGuid>{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApplicationImageService</RootNamespace>
-    <AssemblyName>ApplicationImageService</AssemblyName>
+    <RootNamespace>ImageTransfertService</RootNamespace>
+    <AssemblyName>ImageTransfertService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
@@ -63,10 +63,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IImageTransfert.cs" />
     <Compile Include="ImageTransfert.svc.cs">
       <DependentUpon>ImageTransfert.svc</DependentUpon>
     </Compile>
+    <Compile Include="IImageTransfert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,7 +80,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>15024</DevelopmentServerPort>
+          <DevelopmentServerPort>37373</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

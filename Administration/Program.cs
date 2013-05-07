@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO; 
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +13,9 @@ namespace Administration
         {
             Console.WriteLine("Administration terminal : ");
             // Instanciation de la référence de service 
-            ImageTransfertServiceReference.ImageTransfertClient
+            ImageTransfertServiceRef.ImageTransfertClient
             imageTransfertService = new
-            ImageTransfertServiceReference.ImageTransfertClient();
+            ImageTransfertServiceRef.ImageTransfertClient();
             MemoryStream imageStream = new
             MemoryStream(lireFichier(@"c:\fichier.jpg"));
             Console.WriteLine("Image read from disk");
@@ -40,6 +40,6 @@ namespace Administration
             BinaryReader br = new BinaryReader(fileStream);
             data = br.ReadBytes(nbBytes);
             return data;
-        } 
+        }
     }
 }

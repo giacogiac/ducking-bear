@@ -7,15 +7,11 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.IO;
 
-
-namespace ApplicationImageService
+namespace ImageTransfertService
 {
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" dans le code, le fichier svc et le fichier de configuration.
-    public class TransfertImage : ITransfertImage
+    public class Service1 : IImageTransfert
     {
-        // la classe AccesDonnees n’est pas donnée ici  
-        private AccesDonnees accesDonnees = new AccesDonnees();
-
         public String UploadImage(Stream image)
         {
             // Stocker l’image en BDD 
@@ -23,7 +19,8 @@ namespace ApplicationImageService
             MemoryStream imageStreamEnMemoire = new MemoryStream();
             image.CopyTo(imageStreamEnMemoire);
             imageBytes = imageStreamEnMemoire.ToArray();
-            String imageID = bdAccess.addImage(imageBytes);
+            String imageID = null;
+            //imageID = bdAccess.addImage(imageBytes);
             imageStreamEnMemoire.Close();
             image.Close();
             return imageID;
@@ -32,10 +29,10 @@ namespace ApplicationImageService
         public Stream DownloadImage(String imageID)
         {
             // Récupérer l'image stockée en BDD et la transférer au client 
-            byte[] imageBytes = bdAccess.getImage(imageID);
+            byte[] imageBytes = null;
+            //imageBytes = bdAccess.getImage(imageID);
             MemoryStream imageStreamEnMemoire = new MemoryStream(imageBytes);
             return imageStreamEnMemoire;
         }
-
     }
 }

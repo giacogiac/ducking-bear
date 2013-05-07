@@ -7,21 +7,24 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.IO;
 
-namespace ApplicationImageService
+namespace ImageTransfertService
 {
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom d'interface "IService1" à la fois dans le code et le fichier de configuration.
     [ServiceContract]
-    public interface ITransfertImage
+    public interface IImageTransfert
     {
+
         [OperationContract]
         String UploadImage(Stream image);
 
         [OperationContract]
-        Stream DownloadImage(String name); 
+        Stream DownloadImage(String imageID);
+
+        // TODO: ajoutez vos opérations de service ici
     }
 
 
-   /* // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
+    // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
     [DataContract]
     public class CompositeType
     {
@@ -41,5 +44,5 @@ namespace ApplicationImageService
             get { return stringValue; }
             set { stringValue = value; }
         }
-    }*/
+    }
 }

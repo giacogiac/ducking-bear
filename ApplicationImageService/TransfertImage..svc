@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="ApplicationImageService.Service1" CodeBehind="TransfertImage..svc.cs" %>
