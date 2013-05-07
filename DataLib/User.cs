@@ -7,7 +7,7 @@ using System.Data;
 
 namespace DataLib
 {
-    class User
+    public class User
     {
         private SqlConnection conn;
         private String userid;
@@ -35,7 +35,7 @@ namespace DataLib
                 = albumid;
                 
                 // execution de la requête
-                ajoutUser.ExecuteNonQuery();
+                ajoutAlbum.ExecuteNonQuery();
             }
             catch (Exception e)
             {

@@ -7,7 +7,7 @@ using System.Data;
 
 namespace DataLib
 {
-    class Album
+    public class Album
     {
         private SqlConnection conn;
         private String userid;
