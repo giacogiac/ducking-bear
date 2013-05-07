@@ -18,7 +18,7 @@ namespace ImageTransfertService
         String UploadImage(Stream image);
 
         [OperationContract]
-        Stream DownloadImage(String imageID);
+        Stream DownloadImage(String userid, String albumid, String imageid);
 
         // TODO: ajoutez vos opérations de service ici
     }
