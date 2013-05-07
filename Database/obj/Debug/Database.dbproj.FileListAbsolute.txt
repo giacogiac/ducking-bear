@@ -6,3 +6,11 @@ D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database_Database.sqlcmdvars
 D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database.deploymanifest
 D:\Cours\Serv_Entr\ducking-bear\Database\sql\debug\Database.dbschema
 D:\Cours\Serv_Entr\ducking-bear\Database\obj\Debug\Database.dbschema
+d:\documents\visual studio 2010\Projects\ducking-bear\Database\sql\debug\Database_Script.PreDeployment.sql
+d:\documents\visual studio 2010\Projects\ducking-bear\Database\sql\debug\Database_Script.PostDeployment.sql
+d:\documents\visual studio 2010\Projects\ducking-bear\Database\sql\debug\Database_Database.sqlsettings
+d:\documents\visual studio 2010\Projects\ducking-bear\Database\sql\debug\Database_Database.sqldeployment
+d:\documents\visual studio 2010\Projects\ducking-bear\Database\sql\debug\Database_Database.sqlcmdvars
+d:\documents\visual studio 2010\Projects\ducking-bear\Database\sql\debug\Database.deploymanifest
+d:\documents\visual studio 2010\Projects\ducking-bear\Database\sql\debug\Database.dbschema
+d:\documents\visual studio 2010\Projects\ducking-bear\Database\obj\Debug\Database.dbschema

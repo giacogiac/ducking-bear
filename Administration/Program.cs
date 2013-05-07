@@ -20,7 +20,7 @@ namespace Administration
             // Instanciation de la référence de service 
             ImageTransfertServiceReference.Service1Client imageTransfertService =
                 new ImageTransfertServiceReference.Service1Client();
-            MemoryStream imageStream = new MemoryStream(lireFichier(@"c:\batman.bmp"));
+            MemoryStream imageStream = new MemoryStream(lireFichier(@"D:\Pictures\ttt.jpg"));
             Console.Out.WriteLine("Début upload");
             // Appel de notre web method 
             imageTransfertService.UploadImage(imageStream);

@@ -22,13 +22,9 @@ namespace DataLib
 
         public User getUser(String userId)
         {
-            return new User(0);
+            return new User(0, sqlCon);
         }
        
-        public SqlConnection getSqlCon()
-        {
-           return sqlCon; 
-        }
         public List<User> getAllUsers()
         {
             return new List<User>();
