@@ -1,9 +1,8 @@
 ﻿using System;
-using System.IO; 
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataLib;
 
 namespace Administration
 {
@@ -12,16 +11,14 @@ namespace Administration
         //TEST SUR L'UPLOAD D'UNE IMAGE ( voir enoncé 2 )
         static void Main(string[] args)
         {
-            /*TestReference1.Service1Client test = new TestReference1.Service1Client();
-            Console.WriteLine(test.GetData(1));*/
-
-            
-            Console.Out.WriteLine("Début utilisation service");
+            Console.WriteLine("Administration terminal : ");
             // Instanciation de la référence de service 
-            ImageTransfertServiceReference.Service1Client imageTransfertService =
-                new ImageTransfertServiceReference.Service1Client();
-            MemoryStream imageStream = new MemoryStream(lireFichier(@"D:\Pictures\ttt.jpg"));
-            Console.Out.WriteLine("Début upload");
+            ImageTransfertServiceRef.ImageTransfertClient
+            imageTransfertService = new
+            ImageTransfertServiceRef.ImageTransfertClient();
+            MemoryStream imageStream = new
+            MemoryStream(lireFichier(@"c:\fichier.jpg"));
+            Console.WriteLine("Image read from disk");
             // Appel de notre web method 
             imageTransfertService.UploadImage(imageStream);
             Console.Out.WriteLine("Transfert Terminé");
@@ -43,6 +40,6 @@ namespace Administration
             BinaryReader br = new BinaryReader(fileStream);
             data = br.ReadBytes(nbBytes);
             return data;
-        } 
+        }
     }
 }

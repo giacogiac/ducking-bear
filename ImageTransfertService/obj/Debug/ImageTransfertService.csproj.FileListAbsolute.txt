@@ -1,0 +1,5 @@
+D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\bin\ImageTransfertService.dll
+D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\bin\ImageTransfertService.pdb
+D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\obj\Debug\ResolveAssemblyReference.cache
+D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\obj\Debug\ImageTransfertService.dll
+D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\obj\Debug\ImageTransfertService.pdb
