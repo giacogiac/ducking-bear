@@ -14,35 +14,56 @@ namespace ImageTransfertService
     public interface IImageTransfert
     {
 
-        [OperationContract]
-        String UploadImage(Stream image);
 
         [OperationContract]
-        Stream DownloadImage(String userid, String albumid, String imageid);
+        void  UploadImage(ImageUploadRequest data);
+
+        [OperationContract]
+        ImageDownloadResponse Download(ImageDownloadRequest data); 
 
         // TODO: ajoutez vos opérations de service ici
     }
 
 
-    // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
-    [DataContract]
-    public class CompositeType
+
+    [MessageContract]
+    public class ImageUploadRequest
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        [MessageHeader(MustUnderstand = true)]
+        public ImageInfo ImageInfo;
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        [MessageBodyMember(Order = 1)]
+        public Stream ImageData;
 
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
     }
+
+    [MessageContract]
+    public class ImageDownloadResponse
+    {
+
+        [MessageBodyMember(Order = 1)]
+        public Stream ImageData;
+    }
+
+    [MessageContract]
+    public class ImageDownloadRequest
+    {
+
+        [MessageBodyMember(Order = 1)]
+        public ImageInfo ImageInfo;
+    }
+
+    [DataContract]
+    public class ImageInfo
+    {
+        [DataMember(Order = 1, IsRequired = true)]
+        public String imageid { get; set; }
+
+        [DataMember(Order = 2, IsRequired = true)]
+        public String albumid { get; set; }
+
+        [DataMember(Order = 3, IsRequired = true)]
+        public String userid { get; set; }
+    } 
+
 }

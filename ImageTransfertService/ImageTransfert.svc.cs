@@ -13,31 +13,33 @@ namespace ImageTransfertService
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" dans le code, le fichier svc et le fichier de configuration.
     public class Service1 : IImageTransfert
     {
-        String server = "OPERA\\SQLEXPRESS";
-        String database = "ducking_bear_db";
+        static String server = "OPERA\\SQLEXPRESS";
+        static String database = "ducking_bear_db";
 
-        public String UploadImage(Stream image)
+        public void  UploadImage(ImageUploadRequest data)
         {
             // Stocker l’image en BDD 
             byte[] imageBytes = null;
             MemoryStream imageStreamEnMemoire = new MemoryStream();
-            image.CopyTo(imageStreamEnMemoire);
+            data.ImageData.CopyTo(imageStreamEnMemoire);
             imageBytes = imageStreamEnMemoire.ToArray();
-            String imageID = null;
-            imageID = bdAccess.addImage(imageBytes);
+
+            Connexion connex = new Connexion(server, database);
+            connex.getUser(data.ImageInfo.userid).getAlbum(data.ImageInfo.albumid).addImage(data.ImageInfo.imageid, imageBytes);
             imageStreamEnMemoire.Close();
-            image.Close();
-            return imageID;
+            data.ImageData.Close();
         }
 
-        public Stream DownloadImage(String userid, String albumid, String imageid)
+        public ImageDownloadResponse Download(ImageDownloadRequest data)
         {
             // Récupérer l'image stockée en BDD et la transférer au client 
             byte[] imageBytes = null;
-            Connexion bdAccess = new Connexion(server, database);
-            imageBytes = bdAccess.getUser(userid).getAlbum(albumid).getImage(imageid);
+            Connexion connex = new Connexion(server, database);
+            imageBytes = connex.getUser(data.ImageInfo.userid).getAlbum(data.ImageInfo.albumid).getImage(data.ImageInfo.imageid);
             MemoryStream imageStreamEnMemoire = new MemoryStream(imageBytes);
-            return imageStreamEnMemoire;
+            ImageDownloadResponse res = new ImageDownloadResponse();
+            res.ImageData = imageStreamEnMemoire;
+            return res;
         }
     }
 }

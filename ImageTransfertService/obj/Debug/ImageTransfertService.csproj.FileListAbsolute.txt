@@ -3,3 +3,5 @@ D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\bin\ImageTransfertService.
 D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\obj\Debug\ResolveAssemblyReference.cache
 D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\obj\Debug\ImageTransfertService.dll
 D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\obj\Debug\ImageTransfertService.pdb
+D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\bin\DataLib.dll
+D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\bin\DataLib.pdb
