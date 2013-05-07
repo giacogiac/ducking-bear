@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "LibrairieInutile\DataLib.csproj", "{D8CC4DB4-ADC0-4476-928A-745952E3F269}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administration", "Administration\Administration.csproj", "{E7B4414A-D7BC-420D-96A5-2F755166286B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{45B70257-351F-48FF-8A2F-36A80D069FE2}"
@@ -19,16 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{D8CC4DB4-ADC0-4476-928A-745952E3F269}.Release|x86.ActiveCfg = Release|Any CPU
 		{E7B4414A-D7BC-420D-96A5-2F755166286B}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{E7B4414A-D7BC-420D-96A5-2F755166286B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{E7B4414A-D7BC-420D-96A5-2F755166286B}.Debug|Mixed Platforms.Build.0 = Debug|x86

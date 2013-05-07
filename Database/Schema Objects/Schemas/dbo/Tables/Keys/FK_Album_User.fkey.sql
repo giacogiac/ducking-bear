@@ -1,3 +1,0 @@
-﻿ALTER TABLE [dbo].[Album]
-    ADD CONSTRAINT [FK_Album_User] FOREIGN KEY ([owner]) REFERENCES [dbo].[User] ([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
-

@@ -59,12 +59,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibrairieInutile\DataLib.csproj">
-      <Project>{D8CC4DB4-ADC0-4476-928A-745952E3F269}</Project>
-      <Name>DataLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
