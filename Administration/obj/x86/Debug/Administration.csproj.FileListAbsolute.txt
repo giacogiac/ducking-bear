@@ -1,0 +1,8 @@
+D:\Cours\Serv_Entr\ducking-bear\Administration\bin\Debug\Administration.exe.config
+D:\Cours\Serv_Entr\ducking-bear\Administration\bin\Debug\Administration.exe
+D:\Cours\Serv_Entr\ducking-bear\Administration\bin\Debug\Administration.pdb
+D:\Cours\Serv_Entr\ducking-bear\Administration\bin\Debug\DataLib.dll
+D:\Cours\Serv_Entr\ducking-bear\Administration\bin\Debug\DataLib.pdb
+D:\Cours\Serv_Entr\ducking-bear\Administration\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Cours\Serv_Entr\ducking-bear\Administration\obj\x86\Debug\Administration.exe
+D:\Cours\Serv_Entr\ducking-bear\Administration\obj\x86\Debug\Administration.pdb

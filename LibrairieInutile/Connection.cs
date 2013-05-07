@@ -17,6 +17,7 @@ namespace DataLib
             String connectionStr = "Server=" + server
                 + ";Database=" + database + ";Integrated Security=true;";
             sqlCon = new SqlConnection(connectionStr);
+            Console.WriteLine("connected to database");
         }
 
         public User getUser(String userId)
