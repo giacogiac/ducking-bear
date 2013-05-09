@@ -17,7 +17,7 @@ namespace Administration
             imageTransfertService = new
             ImageTransfertServiceRef.ImageTransfertClient();
             MemoryStream imageStream = new
-            MemoryStream(lireFichier(@"c:\fichier.jpg"));
+            MemoryStream(lireFichier(@"D:\Pictures\ttt.jpg"));
             Console.WriteLine("Image read from disk");
             // Appel de notre web method 
             imageTransfertService.UploadImage(imageStream);

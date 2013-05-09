@@ -9,9 +9,10 @@ namespace DataLib
 {
     public class Connexion
     {
-        private SqlConnection conn;
+        public const String SERVER = "OPERA\\SQLEXPRESS";
+        public const String DATABASE = "ducking_bear_db";
 
-        string connectionStr = "Server=WIN-RSUG6DOVU7C\\SQLEXPRESS;Database=TestDB;Integrated Security=true;";
+        private SqlConnection conn;
 
         public Connexion(String server, String database)
         {

@@ -13,9 +13,6 @@ namespace ImageTransfertService
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" dans le code, le fichier svc et le fichier de configuration.
     public class Service1 : IImageTransfert
     {
-        static String server = "OPERA\\SQLEXPRESS";
-        static String database = "ducking_bear_db";
-
         public void  UploadImage(ImageUploadRequest data)
         {
             // Stocker l’image en BDD 
@@ -24,7 +21,7 @@ namespace ImageTransfertService
             data.ImageData.CopyTo(imageStreamEnMemoire);
             imageBytes = imageStreamEnMemoire.ToArray();
 
-            Connexion connex = new Connexion(server, database);
+            Connexion connex = new Connexion(Connexion.SERVER, Connexion.DATABASE);
             connex.getUser(data.ImageInfo.userid).getAlbum(data.ImageInfo.albumid).addImage(data.ImageInfo.imageid, imageBytes);
             imageStreamEnMemoire.Close();
             data.ImageData.Close();
