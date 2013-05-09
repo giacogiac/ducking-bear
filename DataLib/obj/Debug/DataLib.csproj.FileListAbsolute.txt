@@ -3,3 +3,8 @@ D:\Cours\Serv_Entr\ducking-bear\DataLib\bin\Debug\DataLib.pdb
 D:\Cours\Serv_Entr\ducking-bear\DataLib\obj\Debug\ResolveAssemblyReference.cache
 D:\Cours\Serv_Entr\ducking-bear\DataLib\obj\Debug\DataLib.dll
 D:\Cours\Serv_Entr\ducking-bear\DataLib\obj\Debug\DataLib.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\obj\Debug\ResolveAssemblyReference.cache
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\obj\Debug\DataLib.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\obj\Debug\DataLib.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\bin\Debug\DataLib.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\bin\Debug\DataLib.pdb
