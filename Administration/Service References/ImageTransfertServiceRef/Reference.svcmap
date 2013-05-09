@@ -21,9 +21,10 @@
     <MetadataSource Address="http://localhost:37373/ImageTransfert.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="530cbc78-c815-4a17-8191-ad1ba33810ac" SourceId="1" SourceUrl="http://localhost:37373/ImageTransfert.svc?wsdl" />
     <MetadataFile FileName="ImageTransfert.xsd" MetadataType="Schema" ID="84638dc4-39cf-44c6-a720-afbfdb3e040d" SourceId="1" SourceUrl="http://localhost:37373/ImageTransfert.svc?xsd=xsd1" />
     <MetadataFile FileName="ImageTransfert1.xsd" MetadataType="Schema" ID="f9054254-abca-4ad5-98c5-08e3df3391af" SourceId="1" SourceUrl="http://localhost:37373/ImageTransfert.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="530cbc78-c815-4a17-8191-ad1ba33810ac" SourceId="1" SourceUrl="http://localhost:37373/ImageTransfert.svc?wsdl" />
+    <MetadataFile FileName="ImageTransfert3.xsd" MetadataType="Schema" ID="18602ae8-bbff-4a1f-8b38-35b96c8bbb06" SourceId="1" SourceUrl="http://localhost:37373/ImageTransfert.svc?xsd=xsd3" />
     <MetadataFile FileName="ImageTransfert2.xsd" MetadataType="Schema" ID="dbbe21fb-c345-42fe-95f7-dd9ea67dab29" SourceId="1" SourceUrl="http://localhost:37373/ImageTransfert.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>

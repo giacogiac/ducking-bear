@@ -13,14 +13,17 @@ namespace Administration
         {
             Console.WriteLine("Administration terminal : ");
             // Instanciation de la référence de service 
-            ImageTransfertServiceRef.ImageTransfertClient
-            imageTransfertService = new
-            ImageTransfertServiceRef.ImageTransfertClient();
-            MemoryStream imageStream = new
-            MemoryStream(lireFichier(@"D:\Pictures\ttt.jpg"));
+            ImageTransfertServiceRef.ImageTransfertClient imageTransfertService = new ImageTransfertServiceRef.ImageTransfertClient();
+            MemoryStream imageStream = new MemoryStream(lireFichier(@"D:\Pictures\ttt.jpg"));
             Console.WriteLine("Image read from disk");
             // Appel de notre web method 
-            imageTransfertService.UploadImage(imageStream);
+            ImageTransfertServiceRef.ImageInfo info = new ImageTransfertServiceRef.ImageInfo();
+            info.albumid = "albumTest";
+            info.userid = "userTest";
+            info.imageid = "imageTest";
+
+            imageTransfertService.UploadImage(info, imageStream);
+
             Console.Out.WriteLine("Transfert Terminé");
             Console.ReadLine();
         }
