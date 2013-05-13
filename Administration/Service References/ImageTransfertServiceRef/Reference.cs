@@ -9,17 +9,160 @@
 //------------------------------------------------------------------------------
 
 namespace Administration.ImageTransfertServiceRef {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImageInfo", Namespace="http://schemas.datacontract.org/2004/07/ImageTransfertService")]
+    [System.SerializableAttribute()]
+    public partial class ImageInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string imageidField;
+        
+        private string albumidField;
+        
+        private string useridField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string imageid {
+            get {
+                return this.imageidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.imageidField, value) != true)) {
+                    this.imageidField = value;
+                    this.RaisePropertyChanged("imageid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public string albumid {
+            get {
+                return this.albumidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.albumidField, value) != true)) {
+                    this.albumidField = value;
+                    this.RaisePropertyChanged("albumid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string userid {
+            get {
+                return this.useridField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.useridField, value) != true)) {
+                    this.useridField = value;
+                    this.RaisePropertyChanged("userid");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ImageTransfertServiceRef.IImageTransfert")]
     public interface IImageTransfert {
         
+        // CODEGEN : La génération du contrat de message depuis l'opération UploadImage n'est ni RPC, ni encapsulée dans un document.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageTransfert/UploadImage", ReplyAction="http://tempuri.org/IImageTransfert/UploadImageResponse")]
-        string UploadImage(System.IO.Stream image);
+        Administration.ImageTransfertServiceRef.UploadImageResponse UploadImage(Administration.ImageTransfertServiceRef.ImageUploadRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageTransfert/DownloadImage", ReplyAction="http://tempuri.org/IImageTransfert/DownloadImageResponse")]
-        System.IO.Stream DownloadImage(string imageID);
+        // CODEGEN : La génération du contrat de message depuis le nom de wrapper (ImageDownloadRequest) du message ImageDownloadRequest ne correspond pas à la valeur par défaut (Download)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageTransfert/Download", ReplyAction="http://tempuri.org/IImageTransfert/DownloadResponse")]
+        Administration.ImageTransfertServiceRef.ImageDownloadResponse Download(Administration.ImageTransfertServiceRef.ImageDownloadRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ImageUploadRequest", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ImageUploadRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Administration.ImageTransfertServiceRef.ImageInfo ImageInfo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.IO.Stream ImageData;
+        
+        public ImageUploadRequest() {
+        }
+        
+        public ImageUploadRequest(Administration.ImageTransfertServiceRef.ImageInfo ImageInfo, System.IO.Stream ImageData) {
+            this.ImageInfo = ImageInfo;
+            this.ImageData = ImageData;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UploadImageResponse {
+        
+        public UploadImageResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ImageDownloadRequest", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ImageDownloadRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Administration.ImageTransfertServiceRef.ImageInfo ImageInfo;
+        
+        public ImageDownloadRequest() {
+        }
+        
+        public ImageDownloadRequest(Administration.ImageTransfertServiceRef.ImageInfo ImageInfo) {
+            this.ImageInfo = ImageInfo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ImageDownloadResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ImageDownloadResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.IO.Stream ImageData;
+        
+        public ImageDownloadResponse() {
+        }
+        
+        public ImageDownloadResponse(System.IO.Stream ImageData) {
+            this.ImageData = ImageData;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +192,28 @@ namespace Administration.ImageTransfertServiceRef {
                 base(binding, remoteAddress) {
         }
         
-        public string UploadImage(System.IO.Stream image) {
-            return base.Channel.UploadImage(image);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Administration.ImageTransfertServiceRef.UploadImageResponse Administration.ImageTransfertServiceRef.IImageTransfert.UploadImage(Administration.ImageTransfertServiceRef.ImageUploadRequest request) {
+            return base.Channel.UploadImage(request);
         }
         
-        public System.IO.Stream DownloadImage(string imageID) {
-            return base.Channel.DownloadImage(imageID);
+        public void UploadImage(Administration.ImageTransfertServiceRef.ImageInfo ImageInfo, System.IO.Stream ImageData) {
+            Administration.ImageTransfertServiceRef.ImageUploadRequest inValue = new Administration.ImageTransfertServiceRef.ImageUploadRequest();
+            inValue.ImageInfo = ImageInfo;
+            inValue.ImageData = ImageData;
+            Administration.ImageTransfertServiceRef.UploadImageResponse retVal = ((Administration.ImageTransfertServiceRef.IImageTransfert)(this)).UploadImage(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Administration.ImageTransfertServiceRef.ImageDownloadResponse Administration.ImageTransfertServiceRef.IImageTransfert.Download(Administration.ImageTransfertServiceRef.ImageDownloadRequest request) {
+            return base.Channel.Download(request);
+        }
+        
+        public System.IO.Stream Download(Administration.ImageTransfertServiceRef.ImageInfo ImageInfo) {
+            Administration.ImageTransfertServiceRef.ImageDownloadRequest inValue = new Administration.ImageTransfertServiceRef.ImageDownloadRequest();
+            inValue.ImageInfo = ImageInfo;
+            Administration.ImageTransfertServiceRef.ImageDownloadResponse retVal = ((Administration.ImageTransfertServiceRef.IImageTransfert)(this)).Download(inValue);
+            return retVal.ImageData;
         }
     }
 }

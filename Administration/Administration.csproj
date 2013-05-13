@@ -67,6 +67,9 @@
     <None Include="Service References\ImageTransfertServiceRef\ImageTransfert2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ImageTransfertServiceRef\ImageTransfert3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ImageTransfertServiceRef\Service1.wsdl" />
   </ItemGroup>
   <ItemGroup>
