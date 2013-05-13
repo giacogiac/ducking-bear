@@ -3,10 +3,3 @@ D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\ClientWeb.pdb
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ResolveAssemblyReference.cache
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ClientWeb.dll
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ClientWeb.pdb
-d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\obj\Debug\ResolveAssemblyReference.cache
-d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\obj\Debug\ClientWeb.dll
-d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\bin\ClientWeb.dll
-d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\bin\ClientWeb.pdb
-d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\bin\DataLib.dll
-d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\bin\DataLib.pdb
-d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\obj\Debug\ClientWeb.pdb

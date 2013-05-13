@@ -26,9 +26,9 @@
 *.sdf
 ipch/
 obj/
-[Bb]in
-[Dd]ebug*/
-[Rr]elease*/
+*/[Bb]in
+*/[Dd]ebug*/
+*/[Rr]elease*/
 Ankh.NoLoad
 
 #InstallShield
@@ -42,7 +42,7 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 
 #Project files
-[Bb]uild/
+*/[Bb]uild/
 
 #Subversion files
 .svn
