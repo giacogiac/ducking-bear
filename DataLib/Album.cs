@@ -99,5 +99,15 @@ namespace DataLib
             }
             return blob;
         }
+
+        public String getUserId()
+        {
+            return userid;
+        }
+
+        public String getAlbumId()
+        {
+            return albumid;
+        }
     }
 }

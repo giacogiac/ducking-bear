@@ -9,7 +9,7 @@ namespace DataLib
 {
     public class Connexion
     {
-        public const String SERVER = "OPERA\\SQLEXPRESS";
+        public const String SERVER = "X064";
         public const String DATABASE = "ducking_bear_db";
 
         private SqlConnection conn;
@@ -41,7 +41,7 @@ namespace DataLib
 
                 // construit la requête
                 SqlCommand ajoutUser = new SqlCommand(
-                "INSERT INTO USER (userid, userpw) " +
+                "INSERT INTO [USER] (userid, userpw) " +
                 "VALUES(@userid, @userpw)", conn);
                 ajoutUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
                 = userid;
@@ -76,7 +76,7 @@ namespace DataLib
                 // connexion au serveur
                 SqlCommand selectUser = new SqlCommand(
                     "SELECT userid " +
-                    "FROM USER " +
+                    "FROM [USER] " +
                     "WHERE userid = @userid", conn);
                 selectUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;
 
@@ -112,7 +112,7 @@ namespace DataLib
                 // connexion au serveur
                 SqlCommand selectUser = new SqlCommand(
                     "SELECT userid " +
-                    "FROM USER" , conn);
+                    "FROM [USER]" , conn);
 
                 // exécution de la requête et création du reader
                 SqlDataReader myReader =

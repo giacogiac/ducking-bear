@@ -20,7 +20,7 @@ namespace Administration
             ImageTransfertServiceRef.ImageInfo info = new ImageTransfertServiceRef.ImageInfo();
             info.albumid = "albumTest";
             info.userid = "userTest";
-            info.imageid = "imageTest";
+            info.imageid = "imageTest3";
 
             imageTransfertService.UploadImage(info, imageStream);
 

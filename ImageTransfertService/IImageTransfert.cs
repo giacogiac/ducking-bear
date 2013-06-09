@@ -16,15 +16,80 @@ namespace ImageTransfertService
 
 
         [OperationContract]
-        void  UploadImage(ImageUploadRequest data);
+        ErrorMessage UploadImage(ImageUploadRequest data);
 
         [OperationContract]
-        ImageDownloadResponse Download(ImageDownloadRequest data); 
+        ImageDownloadResponse Download(ImageDownloadRequest data);
 
-        // TODO: ajoutez vos opérations de service ici
+        [OperationContract]
+        ErrorMessage addUser(UserInfo info);
+
+        [OperationContract]
+        ErrorMessage deleteUser(UserInfo info);
+
+        [OperationContract]
+        ErrorMessage createAlbum(ImageParam param);
+
+        [OperationContract]
+        ErrorMessage deleteAlbum(ImageParam param);
+
+        [OperationContract]
+        ErrorMessage deleteImage(ImageParam param);
+
+        [OperationContract]
+        ListResult getAllUserNames();
+
+        [OperationContract]
+        ListResult getAllAlbumNames(ImageParam param);
+
+        [OperationContract]
+        ListResult getAllImageName(ImageParam param);
+    }
+
+    [MessageContract]
+    public class UserInfo
+    {
+        [MessageBodyMember(Order = 1)]
+        public UserData data;
+    }
+
+    [DataContract]
+    public class UserData
+    {
+
+        [DataMember(Order = 1, IsRequired = true)]
+        public String name { get; set; }
+
+        [DataMember(Order = 2, IsRequired = true)]
+        public String pass { get; set; }
+
     }
 
 
+    [MessageContract]
+    public class ImageParam
+    {
+        [MessageBodyMember(Order = 1)]
+        public ImageInfo info;
+    }
+
+    [MessageContract]
+    public class ListResult
+    {
+
+        [MessageBodyMember(Order = 1)]
+        public List<String> names;
+
+    }
+
+    [MessageContract]
+    public class ErrorMessage
+    {
+
+        [MessageBodyMember(Order = 1)]
+        public String message;
+
+    }
 
     [MessageContract]
     public class ImageUploadRequest
