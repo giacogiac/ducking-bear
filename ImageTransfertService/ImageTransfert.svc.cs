@@ -7,6 +7,8 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.IO;
 using DataLib;
+using System.Security.Principal;
+using System.Security.Permissions;
 
 namespace ImageTransfertService
 {
