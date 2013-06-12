@@ -75,6 +75,9 @@ namespace ImageTransfertService
         [DataMember(Order = 2, IsRequired = true)]
         public String pass { get; set; }
 
+        [DataMember(Order = 3)]
+        public String pass { get; set; }
+
     }
 
 
