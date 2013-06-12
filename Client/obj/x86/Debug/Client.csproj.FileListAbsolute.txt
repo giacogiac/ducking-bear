@@ -1,17 +1,3 @@
-D:\Cours\Serv_Entr\ducking-bear\Client\bin\Debug\Client.exe.config
-D:\Cours\Serv_Entr\ducking-bear\Client\bin\Debug\Client.exe
-D:\Cours\Serv_Entr\ducking-bear\Client\bin\Debug\Client.pdb
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\ResolveAssemblyReference.cache
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\MainWindow.baml
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\MainWindow.g.cs
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\App.g.cs
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client_MarkupCompile.cache
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client.g.resources
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client.Properties.Resources.resources
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\GenerateResource.read.1.tlog
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\GenerateResource.write.1.tlog
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client.exe
-D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client.pdb
 d:\documents\visual studio 2010\Projects\ducking-bear\Client\bin\Debug\Client.exe.config
 d:\documents\visual studio 2010\Projects\ducking-bear\Client\bin\Debug\Client.exe
 d:\documents\visual studio 2010\Projects\ducking-bear\Client\bin\Debug\Client.pdb
@@ -26,3 +12,17 @@ d:\documents\visual studio 2010\Projects\ducking-bear\Client\obj\x86\Debug\Gener
 d:\documents\visual studio 2010\Projects\ducking-bear\Client\obj\x86\Debug\GenerateResource.write.1.tlog
 d:\documents\visual studio 2010\Projects\ducking-bear\Client\obj\x86\Debug\Client.exe
 d:\documents\visual studio 2010\Projects\ducking-bear\Client\obj\x86\Debug\Client.pdb
+D:\Cours\Serv_Entr\ducking-bear\Client\bin\Debug\Client.exe.config
+D:\Cours\Serv_Entr\ducking-bear\Client\bin\Debug\Client.exe
+D:\Cours\Serv_Entr\ducking-bear\Client\bin\Debug\Client.pdb
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\MainWindow.baml
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\MainWindow.g.cs
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\App.g.cs
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client_MarkupCompile.cache
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client.g.resources
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client.Properties.Resources.resources
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client.exe
+D:\Cours\Serv_Entr\ducking-bear\Client\obj\x86\Debug\Client.pdb
