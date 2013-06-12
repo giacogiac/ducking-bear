@@ -32,7 +32,7 @@ namespace DataLib
             }
         }
 
-        public User addUser(String userid, String userpw)
+        public User addUser(String userid, String userpw, String role)
         {
             try
             {
@@ -41,12 +41,14 @@ namespace DataLib
 
                 // construit la requête
                 SqlCommand ajoutUser = new SqlCommand(
-                "INSERT INTO [USER] (userid, usrpw) " +
-                "VALUES(@userid, @userpw)", conn);
+                "INSERT INTO [USER] (userid, usrpw, role) " +
+                "VALUES(@userid, @userpw, @role)", conn);
                 ajoutUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
                 = userid;
                 ajoutUser.Parameters.Add("@userpw", SqlDbType.VarChar, userpw.Length).Value
                 = userpw;
+                ajoutUser.Parameters.Add("@role", SqlDbType.VarChar, role.Length).Value
+                = role;
                 
                 // execution de la requête
                 ajoutUser.ExecuteNonQuery();
