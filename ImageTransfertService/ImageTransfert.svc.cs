@@ -64,7 +64,7 @@ namespace ImageTransfertService
 
              try
              {
-                 Connexion connex = new Connexion(SERVER, DATABASE);
+                 Connexion connex = new Connexion();
                  connex.addUser(info.data.name, info.data.pass);
                  mes.message = "User added";
 
@@ -83,7 +83,7 @@ namespace ImageTransfertService
 
              try
              {
-                 Connexion connex = new Connexion(SERVER, DATABASE);
+                 Connexion connex = new Connexion();
                  //remove User : connex.
                  mes.message = "User removed";
 
@@ -102,7 +102,7 @@ namespace ImageTransfertService
 
              try
              {
-                 Connexion connex = new Connexion(SERVER, DATABASE);
+                 Connexion connex = new Connexion();
                  User user = connex.getUser(param.info.userid);
                  user.addAlbum(param.info.albumid);
                  mes.message = "Album added";
@@ -122,7 +122,7 @@ namespace ImageTransfertService
 
              try
              {
-                 Connexion connex = new Connexion(SERVER, DATABASE);
+                 Connexion connex = new Connexion();
                  User user = connex.getUser(param.info.userid);
                  //user.removeAlbum
                  mes.message = "Album removed";
@@ -142,7 +142,7 @@ namespace ImageTransfertService
 
              try
              {
-                 Connexion connex = new Connexion(SERVER, DATABASE);
+                 Connexion connex = new Connexion();
                  User user = connex.getUser(param.info.userid);
                  Album album = user.getAlbum(param.info.albumid);
                  //album.removeImage
@@ -162,7 +162,7 @@ namespace ImageTransfertService
              ListResult res = new ListResult();
              try
              {
-                 Connexion connex = new Connexion(SERVER, DATABASE);
+                 Connexion connex = new Connexion();
                  List<User> users = connex.getAllUsers();
                  List<String> strings = new List<string>();
                  foreach( User us in users){
@@ -182,7 +182,7 @@ namespace ImageTransfertService
              ListResult res = new ListResult();
              try
              {
-                 Connexion connex = new Connexion(SERVER, DATABASE);
+                 Connexion connex = new Connexion();
                  User user = connex.getUser(param.info.userid);
                  List<String> strings = new List<string>();
                  List<Album> albums = user.getAllAlbums();
@@ -204,7 +204,7 @@ namespace ImageTransfertService
              ListResult res = new ListResult();
              try
              {
-                 Connexion connex = new Connexion(SERVER, DATABASE);
+                 Connexion connex = new Connexion();
                  User user = connex.getUser(param.info.userid);
                  List<String> strings = new List<string>();
                  Album album = user.getAlbum(param.info.albumid);
