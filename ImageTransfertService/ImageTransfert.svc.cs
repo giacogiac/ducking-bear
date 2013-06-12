@@ -14,9 +14,6 @@ namespace ImageTransfertService
     public class Service1 : IImageTransfert
     {
 
-        public const String SERVER = "X064";
-        public const String DATABASE = "testDB";
-
         public void  UploadImage(ImageUploadRequest data)
         {
             try
@@ -27,7 +24,7 @@ namespace ImageTransfertService
                 data.ImageData.CopyTo(imageStreamEnMemoire);
                 imageBytes = imageStreamEnMemoire.ToArray();
 
-                Connexion connex = new Connexion(Connexion.SERVER, Connexion.DATABASE);
+                Connexion connex = new Connexion();
                 connex.getUser(data.ImageInfo.userid).getAlbum(data.ImageInfo.albumid).addImage(data.ImageInfo.imageid, imageBytes);
                 imageStreamEnMemoire.Close();
                 data.ImageData.Close();
@@ -43,7 +40,7 @@ namespace ImageTransfertService
             try{
                 // Récupérer l'image stockée en BDD et la transférer au client 
                 byte[] imageBytes = null;
-                Connexion connex = new Connexion(SERVER, DATABASE);
+                Connexion connex = new Connexion();
                 imageBytes = connex.getUser(data.ImageInfo.userid).getAlbum(data.ImageInfo.albumid).getImage(data.ImageInfo.imageid);
                 MemoryStream imageStreamEnMemoire = new MemoryStream(imageBytes);
                 ImageDownloadResponse res = new ImageDownloadResponse();

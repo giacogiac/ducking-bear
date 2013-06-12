@@ -20,7 +20,7 @@ namespace ClientWeb
             if (userid != null && albumid != null && pictureid != null)
             {
                 // on récupére notre image là où il faut
-                Connexion connex = new Connexion(Connexion.SERVER, Connexion.DATABASE);
+                Connexion connex = new Connexion();
                 Byte[] bytes = connex.getUser(userid).getAlbum(albumid).getImage(pictureid);
                 // et on crée le contenu de notre réponse à la requête HTTP
                 // (ici un contenu de type image)

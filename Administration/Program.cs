@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataLib;
 
 namespace Administration
 {
@@ -11,6 +12,9 @@ namespace Administration
         //TEST SUR L'UPLOAD D'UNE IMAGE ( voir enoncé 2 )
         static void Main(string[] args)
         {
+            Connexion c = new Connexion();
+            c.getAllUsers();
+            c.getUser("gwenn");
             Console.WriteLine("Administration terminal : ");
             // Instanciation de la référence de service 
             ImageTransfertServiceRef.ImageTransfertClient imageTransfertService = new ImageTransfertServiceRef.ImageTransfertClient();
@@ -18,8 +22,8 @@ namespace Administration
             Console.WriteLine("Image read from disk");
             // Appel de notre web method 
             ImageTransfertServiceRef.ImageInfo info = new ImageTransfertServiceRef.ImageInfo();
-            info.albumid = "albumTest";
-            info.userid = "userTest";
+            info.albumid = "noel";
+            info.userid = "giac";
             info.imageid = "imageTest";
 
             imageTransfertService.UploadImage(info, imageStream);

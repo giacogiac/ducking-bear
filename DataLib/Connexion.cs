@@ -14,9 +14,9 @@ namespace DataLib
 
         private SqlConnection conn;
 
-        public Connexion(String server, String database)
+        public Connexion()
         {
-            conn = new SqlConnection("Server=" + server + ";Database="+ database + ";Integrated Security=true;");
+            conn = new SqlConnection("Server=" + SERVER + ";Database=" + DATABASE + ";Integrated Security=true;");
             try
             {
                 conn.Open();
@@ -41,7 +41,7 @@ namespace DataLib
 
                 // construit la requête
                 SqlCommand ajoutUser = new SqlCommand(
-                "INSERT INTO USER (userid, userpw) " +
+                "INSERT INTO [USER] (userid, userpw) " +
                 "VALUES(@userid, @userpw)", conn);
                 ajoutUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
                 = userid;
@@ -76,7 +76,7 @@ namespace DataLib
                 // connexion au serveur
                 SqlCommand selectUser = new SqlCommand(
                     "SELECT userid " +
-                    "FROM USER " +
+                    "FROM [USER] " +
                     "WHERE userid = @userid", conn);
                 selectUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;
 
@@ -112,7 +112,7 @@ namespace DataLib
                 // connexion au serveur
                 SqlCommand selectUser = new SqlCommand(
                     "SELECT userid " +
-                    "FROM USER" , conn);
+                    "FROM [USER]" , conn);
 
                 // exécution de la requête et création du reader
                 SqlDataReader myReader =

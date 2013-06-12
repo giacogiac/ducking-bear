@@ -5,3 +5,10 @@ D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\obj\Debug\ImageTransfertSe
 D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\obj\Debug\ImageTransfertService.pdb
 D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\bin\DataLib.dll
 D:\Cours\Serv_Entr\ducking-bear\ImageTransfertService\bin\DataLib.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\ImageTransfertService\bin\ImageTransfertService.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\ImageTransfertService\bin\ImageTransfertService.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\ImageTransfertService\bin\DataLib.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\ImageTransfertService\bin\DataLib.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\ImageTransfertService\obj\Debug\ResolveAssemblyReference.cache
+d:\documents\visual studio 2010\Projects\ducking-bear\ImageTransfertService\obj\Debug\ImageTransfertService.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\ImageTransfertService\obj\Debug\ImageTransfertService.pdb
