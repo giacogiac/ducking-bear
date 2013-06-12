@@ -100,7 +100,7 @@ namespace DataLib
 
                 // connexion au serveur
                 SqlCommand selectImage = new SqlCommand(
-                    "SELECT userid, albumid, pictureid " +
+                    "SELECT size, blob " +
                     "FROM PICTURE " +
                     "WHERE userid = @userid " +
                     "AND albumid = @albumid " +
@@ -115,10 +115,10 @@ namespace DataLib
                 if (myReader.Read())
                 {
                     // lit la taille du blob
-                    int size = myReader.GetInt32(1);
+                    int size = myReader.GetInt32(0);
                     blob = new byte[size];
                     // récupére le blob de la BDD et le copie dans la variable blob
-                    myReader.GetBytes(2, 0, blob, 0, size);
+                    myReader.GetBytes(1, 0, blob, 0, size);
                 }
             }
             catch (Exception e)

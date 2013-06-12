@@ -13,25 +13,26 @@ namespace Administration
         static void Main(string[] args)
         {
             Connexion c = new Connexion();
-            c.removeUser("giac");
-            /*
+            c.addUser("giac", "giacpw").addAlbum("noel");
+            
+            
             c.getAllUsers();
             c.getUser("gwenn");
             Console.WriteLine("Administration terminal : ");
             // Instanciation de la référence de service 
             ImageTransfertServiceRef.ImageTransfertClient imageTransfertService = new ImageTransfertServiceRef.ImageTransfertClient();
-            MemoryStream imageStream = new MemoryStream(lireFichier(@"D:\Pictures\ttt.jpg"));
+            MemoryStream imageStream = new MemoryStream(lireFichier(@"D:\Pictures\cul.jpg"));
             Console.WriteLine("Image read from disk");
             // Appel de notre web method 
             ImageTransfertServiceRef.ImageInfo info = new ImageTransfertServiceRef.ImageInfo();
             info.albumid = "noel";
             info.userid = "giac";
-            info.imageid = "imageTest3";
+            info.imageid = "cul";
 
             imageTransfertService.UploadImage(info, imageStream);
 
             Console.Out.WriteLine("Transfert Terminé");
-            */
+            
             Console.ReadLine();
         }
 

@@ -10,15 +10,15 @@
     <form id="form1" runat="server">
     <div>
         <p>
-            <asp:Image ID="ImageCourante" runat="server" />
-        </p>
-        <p>
             UserID&nbsp;AlbumID&nbsp;PictureID&nbsp;:&nbsp;
             <asp:TextBox ID="UseridBox" runat="server" />
             <asp:TextBox ID="AlbumidBox" runat="server" />
             <asp:TextBox ID="ImageidBox" runat="server" />
             <asp:Button ID="Visualiser" runat="server" OnClick="Visualiser_Click"
             Text="Visualiser" />
+        </p>
+        <p>
+            <asp:Image ID="ImageCourante" runat="server" />
         </p>
     </div>
     </form>

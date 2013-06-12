@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administration", "Administration\Administration.csproj", "{9A6A5D2E-7A21-4537-B855-C32D2F822693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{45B70257-351F-48FF-8A2F-36A80D069FE2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWeb", "ClientWeb\ClientWeb.csproj", "{734E7040-D3FF-4E87-8869-CCB14EE65630}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "DataLib\DataLib.csproj", "{A77F30C7-61BD-433A-977F-819511621AD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageTransfertService", "ImageTransfertService\ImageTransfertService.csproj", "{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWPF", "ClientWPF\ClientWPF.csproj", "{DD084C98-DE02-45DE-9004-E756FD5E7095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,16 +31,6 @@ Global
 		{9A6A5D2E-7A21-4537-B855-C32D2F822693}.Release|Mixed Platforms.Build.0 = Release|x86
 		{9A6A5D2E-7A21-4537-B855-C32D2F822693}.Release|x86.ActiveCfg = Release|x86
 		{9A6A5D2E-7A21-4537-B855-C32D2F822693}.Release|x86.Build.0 = Release|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Debug|x86.ActiveCfg = Debug|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Debug|x86.Build.0 = Debug|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Release|Any CPU.ActiveCfg = Release|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Release|Mixed Platforms.Build.0 = Release|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Release|x86.ActiveCfg = Release|x86
-		{45B70257-351F-48FF-8A2F-36A80D069FE2}.Release|x86.Build.0 = Release|x86
 		{734E7040-D3FF-4E87-8869-CCB14EE65630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{734E7040-D3FF-4E87-8869-CCB14EE65630}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{734E7040-D3FF-4E87-8869-CCB14EE65630}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -71,6 +61,16 @@ Global
 		{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}.Release|x86.ActiveCfg = Release|Any CPU
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Debug|x86.ActiveCfg = Debug|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Debug|x86.Build.0 = Debug|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Release|Any CPU.ActiveCfg = Release|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Release|Mixed Platforms.Build.0 = Release|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Release|x86.ActiveCfg = Release|x86
+		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

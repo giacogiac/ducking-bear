@@ -109,7 +109,7 @@ namespace DataLib
 
                 // connexion au serveur
                 SqlCommand selectUser = new SqlCommand(
-                    "SELECT userid " +
+                    "SELECT * " +
                     "FROM [USER] " +
                     "WHERE userid = @userid", conn);
                 selectUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;
