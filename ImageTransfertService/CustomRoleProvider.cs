@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
+using DataLib;
 
 namespace ImageTransfertService
 {
@@ -11,6 +12,29 @@ namespace ImageTransfertService
 
         public override String[] GetRolesForUser(String username)
         {
+            String[] roles;
+            try
+            {
+                Connexion connex = new Connexion();
+                User user = connex.getUser(username);
+                String role = user.getRole();
+                if (role.Equals("admin"))
+                {
+                    roles = new String[2];
+                    roles[0] = "admin";
+                    roles[1] = "user";
+                }
+                else
+                {
+                    roles = new String[1];
+                    roles[0] = role;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
             return new String[] { /*XXXXXX.getRoles(username)*/ null };
         }
 

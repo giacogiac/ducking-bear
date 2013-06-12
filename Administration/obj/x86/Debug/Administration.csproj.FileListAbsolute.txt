@@ -1,1 +1,2 @@
 d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\Administration.exe.config
+d:\documents\visual studio 2010\Projects\ducking-bear\Administration\obj\x86\Debug\ResolveAssemblyReference.cache
