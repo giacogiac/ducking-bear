@@ -41,7 +41,7 @@ namespace DataLib
 
                 // construit la requête
                 SqlCommand ajoutUser = new SqlCommand(
-                "INSERT INTO [USER] (userid, userpw) " +
+                "INSERT INTO [USER] (userid, usrpw) " +
                 "VALUES(@userid, @userpw)", conn);
                 ajoutUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
                 = userid;
@@ -69,12 +69,17 @@ namespace DataLib
         {
             try
             {
+                User u = getUser(userid);
+                foreach (Album a in u.getAllAlbums())
+                {
+                    u.removeAlbum(a.getAlbumId());
+                }
                 // connexion au serveur
                 conn.Open();
 
                 // construit la requête
                 SqlCommand delUser = new SqlCommand(
-                "DELETE CASCADE FROM [USER] WHERE userid=@userid", conn);
+                "DELETE FROM [USER] WHERE userid=@userid", conn);
                 delUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
                 = userid;
 

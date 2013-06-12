@@ -144,8 +144,8 @@ namespace DataLib
 
                 // connexion au serveur
                 SqlCommand selectImage = new SqlCommand(
-                    "SELECT imageid " +
-                    "FROM ALBUM " +
+                    "SELECT pictureid " +
+                    "FROM PICTURE " +
                     "WHERE userid = @userid "+
                     "AND albumid = @albumid", conn);
                 selectImage.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;

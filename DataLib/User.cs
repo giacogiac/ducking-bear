@@ -55,12 +55,17 @@ namespace DataLib
         {
             try
             {
+                Album a = getAlbum(albumid);
+                foreach (String i in a.getAllImages())
+                {
+                    a.removeImage(i);
+                }
                 // connexion au serveur
                 conn.Open();
 
                 // construit la requête
                 SqlCommand delAlbum = new SqlCommand(
-                "DELETE CASCADE FROM ALBUM WHERE userid=@userid AND albumid=@albumid", conn);
+                "DELETE FROM ALBUM WHERE userid=@userid AND albumid=@albumid", conn);
                 delAlbum.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
                 = userid;
                 delAlbum.Parameters.Add("@albumid", SqlDbType.VarChar, albumid.Length).Value
@@ -166,7 +171,7 @@ namespace DataLib
 
                 // connexion au serveur
                 SqlCommand selectPw = new SqlCommand(
-                    "SELECT userpw " +
+                    "SELECT usrpw " +
                     "FROM [USER] " +
                     "WHERE userid = @userid", conn);
                 selectPw.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;

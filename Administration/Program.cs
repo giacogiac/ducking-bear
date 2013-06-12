@@ -13,6 +13,8 @@ namespace Administration
         static void Main(string[] args)
         {
             Connexion c = new Connexion();
+            c.removeUser("giac");
+            /*
             c.getAllUsers();
             c.getUser("gwenn");
             Console.WriteLine("Administration terminal : ");
@@ -29,6 +31,7 @@ namespace Administration
             imageTransfertService.UploadImage(info, imageStream);
 
             Console.Out.WriteLine("Transfert Terminé");
+            */
             Console.ReadLine();
         }
 
