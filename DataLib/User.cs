@@ -97,7 +97,7 @@ namespace DataLib
 
                 // connexion au serveur
                 SqlCommand selectAlbum = new SqlCommand(
-                    "SELECT userid, albumid " +
+                    "SELECT * " +
                     "FROM ALBUM " +
                     "WHERE userid = @userid " +
                     "AND albumid = @albumid", conn);
