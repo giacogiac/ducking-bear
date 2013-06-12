@@ -21,15 +21,21 @@ namespace ClientWPF
     public partial class MainWindow : Window
     {
         private ImageCollection imageCollection1;
+        private ImageCollection imageCollection2;
         public MainWindow()
         {
             InitializeComponent();
             // On crée notre collection d'image et on y ajoute deux images
             imageCollection1 = new ImageCollection();
             imageCollection1.Add(new ImageObjet("celestial",
-            lireFichier(@"D:\Pictures\culbuntu.jpg")));
+            lireFichier(@"D:\Pictures\boobsncat2.jpg")));
             imageCollection1.Add(new ImageObjet("pearlscale",
             lireFichier(@"D:\Pictures\boobsncat.jpg")));
+            imageCollection2 = new ImageCollection();
+            imageCollection2.Add(new ImageObjet("celestial",
+            lireFichier(@"D:\Pictures\boobs1.jpg")));
+            imageCollection2.Add(new ImageObjet("pearlscale",
+            lireFichier(@"D:\Pictures\boobs2.jpg")));
             // On lie la collectionau ObjectDataProvider déclaré dans le fichier XAML
             ObjectDataProvider imageSource =
             (ObjectDataProvider)FindResource("ImageCollection1");

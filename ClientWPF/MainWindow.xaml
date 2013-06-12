@@ -18,17 +18,37 @@ Title="MainWindow" Height="620" Width="820">
                 </StackPanel>
             </Border>
         </DataTemplate>
+        <Style x:Key="ImageListBoxStyle" TargetType="ListBox">
+            <Setter Property="ItemsSource" Value="{Binding}" />
+            <Setter Property="ItemTemplate" Value="{StaticResource ImageSourceTemplate}" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="ListBox.ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="NotreListbox"
-                 ItemsSource="{Binding}"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ListBox1"
+                 Style="{StaticResource ImageListBoxStyle}"
                  DataContext="{StaticResource ImageCollection1}"
-                 ItemTemplate="{StaticResource ImageSourceTemplate}" >
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>
+                 Grid.Row="0"/>
+        <GridSplitter HorizontalAlignment="Stretch"
+                      ResizeBehavior="PreviousAndNext"
+                      Height="5"
+                      Grid.Row="1"/>
+        <ListBox x:Name="ListBox2"
+                 Style="{StaticResource ImageListBoxStyle}"
+                 DataContext="{StaticResource ImageCollection2}"
+                 Grid.Row="2"/>
     </Grid>
 </Window>
