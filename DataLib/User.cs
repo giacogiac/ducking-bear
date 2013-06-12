@@ -89,9 +89,9 @@ namespace DataLib
             return a;
         }
 
-        public Album getAllAlbums()
+        public List<Album> getAllAlbums()
         {
-            Album a = null;
+            List<Album> lista = new List<Album>();
             try
             {
                 // connexion au serveur
@@ -109,7 +109,7 @@ namespace DataLib
                 selectAlbum.ExecuteReader(CommandBehavior.SequentialAccess);
                 while (myReader.Read())
                 {
-                    a = new Album(conn, userid, myReader.GetString(1));
+                    lista.Add(new Album(conn, userid, myReader.GetString(1)));
                 }
             }
             catch (Exception e)
@@ -122,7 +122,12 @@ namespace DataLib
             {
                 conn.Close();
             }
-            return a;
+            return lista;
+        }
+
+        public String getUserId()
+        {
+            return userid;
         }
 
     }
