@@ -51,6 +51,37 @@ namespace DataLib
             return new Album(conn, userid, albumid);
         }
 
+        public void removeAlbum(String albumid)
+        {
+            try
+            {
+                // connexion au serveur
+                conn.Open();
+
+                // construit la requête
+                SqlCommand delAlbum = new SqlCommand(
+                "DELETE CASCADE FROM ALBUM WHERE userid=@userid AND albumid=@albumid", conn);
+                delAlbum.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
+                = userid;
+                delAlbum.Parameters.Add("@albumid", SqlDbType.VarChar, albumid.Length).Value
+                = albumid;
+
+                // execution de la requête
+                delAlbum.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erreur a removeAlbum avec userid, albumid : " + userid + "," + albumid);
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            finally
+            {
+                // dans tous les cas on ferme la connexion
+                conn.Close();
+            }
+        }
+
         public Album getAlbum(String albumid)
         {
             Album a = null;
@@ -99,7 +130,7 @@ namespace DataLib
 
                 // connexion au serveur
                 SqlCommand selectAlbum = new SqlCommand(
-                    "SELECT userid, albumid " +
+                    "SELECT albumid " +
                     "FROM ALBUM " +
                     "WHERE userid = @userid ", conn);
                 selectAlbum.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;
@@ -109,7 +140,7 @@ namespace DataLib
                 selectAlbum.ExecuteReader(CommandBehavior.SequentialAccess);
                 while (myReader.Read())
                 {
-                    lista.Add(new Album(conn, userid, myReader.GetString(1)));
+                    lista.Add(new Album(conn, userid, myReader.GetString(0)));
                 }
             }
             catch (Exception e)
@@ -123,6 +154,42 @@ namespace DataLib
                 conn.Close();
             }
             return lista;
+        }
+
+        public Boolean auth(String passw)
+        {
+            Boolean a = false;
+            try
+            {
+                // connexion au serveur
+                conn.Open();
+
+                // connexion au serveur
+                SqlCommand selectPw = new SqlCommand(
+                    "SELECT userpw " +
+                    "FROM [USER] " +
+                    "WHERE userid = @userid", conn);
+                selectPw.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;
+
+                // exécution de la requête et création du reader
+                SqlDataReader myReader =
+                selectPw.ExecuteReader(CommandBehavior.SequentialAccess);
+                if (myReader.Read())
+                {
+                    a = passw.Equals(myReader.GetString(0));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erreur a auth avec userid : " + userid);
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return a;
         }
 
         public String getUserId()

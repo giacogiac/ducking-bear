@@ -9,7 +9,7 @@ namespace DataLib
 {
     public class Connexion
     {
-        public const String SERVER = "X064";
+        public const String SERVER = "OPERA\\SQLEXPRESS";
         public const String DATABASE = "ducking_bear_db";
 
         private SqlConnection conn;
@@ -63,6 +63,35 @@ namespace DataLib
                 conn.Close();
             }
             return new User(conn, userid);
+        }
+
+        public void removeUser(String userid)
+        {
+            try
+            {
+                // connexion au serveur
+                conn.Open();
+
+                // construit la requête
+                SqlCommand delUser = new SqlCommand(
+                "DELETE CASCADE FROM [USER] WHERE userid=@userid", conn);
+                delUser.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
+                = userid;
+
+                // execution de la requête
+                delUser.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erreur a addUser avec userid :" + userid);
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            finally
+            {
+                // dans tous les cas on ferme la connexion
+                conn.Close();
+            }
         }
 
         public User getUser(String userid)

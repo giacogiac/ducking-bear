@@ -56,6 +56,40 @@ namespace DataLib
                 conn.Close();
             }
         }
+
+        public void removeImage(String imageid)
+        {
+            try
+            {
+                // connexion au serveur
+                conn.Open();
+
+                // construit la requête
+                SqlCommand delImage = new SqlCommand(
+                "DELETE FROM PICTURE WHERE userid=@userid AND albumid=@albumid AND pictureid=@pictureid", conn);
+                delImage.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value
+                = userid;
+                delImage.Parameters.Add("@albumid", SqlDbType.VarChar, albumid.Length).Value
+                = albumid;
+                delImage.Parameters.Add("@pictureid", SqlDbType.VarChar, imageid.Length).Value
+                = imageid;
+
+                // execution de la requête
+                delImage.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erreur a removeImage avec userid, albumid, imageid : " + userid + "," + albumid + "," + imageid);
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            finally
+            {
+                // dans tous les cas on ferme la connexion
+                conn.Close();
+            }
+        }
+
         public byte[] getImage(String imageid)
         {
             byte[] blob = null;
@@ -98,6 +132,44 @@ namespace DataLib
                 conn.Close();
             }
             return blob;
+        }
+
+        public List<String> getAllImages()
+        {
+            List<String> listi = new List<String>();
+            try
+            {
+                // connexion au serveur
+                conn.Open();
+
+                // connexion au serveur
+                SqlCommand selectImage = new SqlCommand(
+                    "SELECT imageid " +
+                    "FROM ALBUM " +
+                    "WHERE userid = @userid "+
+                    "AND albumid = @albumid", conn);
+                selectImage.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;
+                selectImage.Parameters.Add("@albumid", SqlDbType.VarChar, albumid.Length).Value = albumid;
+
+                // exécution de la requête et création du reader
+                SqlDataReader myReader =
+                selectImage.ExecuteReader(CommandBehavior.SequentialAccess);
+                while (myReader.Read())
+                {
+                    listi.Add(myReader.GetString(0));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erreur a getAllImages avec userid, albumid : " + userid + "," + albumid);
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return listi;
         }
 
         public String getUserId()
