@@ -6,11 +6,3 @@ D:\Cours\Serv_Entr\ducking-bear\Administration\obj\x86\Debug\Administration.exe
 D:\Cours\Serv_Entr\ducking-bear\Administration\obj\x86\Debug\Administration.pdb
 D:\Cours\Serv_Entr\ducking-bear\Administration\bin\Debug\DataLib.dll
 D:\Cours\Serv_Entr\ducking-bear\Administration\bin\Debug\DataLib.pdb
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\Administration.exe.config
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\Administration.exe
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\Administration.pdb
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\DataLib.dll
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\bin\Debug\DataLib.pdb
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\obj\x86\Debug\ResolveAssemblyReference.cache
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\obj\x86\Debug\Administration.exe
-d:\documents\visual studio 2010\Projects\ducking-bear\Administration\obj\x86\Debug\Administration.pdb

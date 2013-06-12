@@ -197,6 +197,42 @@ namespace DataLib
             return a;
         }
 
+        public String getRole()
+        {
+            String r = null;
+            try
+            {
+                // connexion au serveur
+                conn.Open();
+
+                // connexion au serveur
+                SqlCommand selectRole = new SqlCommand(
+                    "SELECT role " +
+                    "FROM [USER] " +
+                    "WHERE userid = @userid", conn);
+                selectRole.Parameters.Add("@userid", SqlDbType.VarChar, userid.Length).Value = userid;
+
+                // exécution de la requête et création du reader
+                SqlDataReader myReader =
+                selectRole.ExecuteReader(CommandBehavior.SequentialAccess);
+                if (myReader.Read())
+                {
+                    r = myReader.GetString(0);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erreur a getRole avec userid : " + userid);
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return r;
+        }
+
         public String getUserId()
         {
             return userid;
