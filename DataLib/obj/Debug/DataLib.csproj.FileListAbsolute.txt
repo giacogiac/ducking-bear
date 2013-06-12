@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\bin\Debug\DataLib.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\bin\Debug\DataLib.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\obj\Debug\ResolveAssemblyReference.cache
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\obj\Debug\DataLib.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\DataLib\obj\Debug\DataLib.pdb
+>>>>>>> a529dca87c596125fa131c13b67b2632836dab2b
 D:\Cours\Serv_Entr\ducking-bear\DataLib\bin\Debug\DataLib.dll
 D:\Cours\Serv_Entr\ducking-bear\DataLib\bin\Debug\DataLib.pdb
 D:\Cours\Serv_Entr\ducking-bear\DataLib\obj\Debug\ResolveAssemblyReference.cache

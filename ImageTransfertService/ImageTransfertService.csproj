@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -63,6 +64,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRoleProvider.cs" />
+    <Compile Include="CustomUserNameValidator.cs" />
     <Compile Include="ImageTransfert.svc.cs">
       <DependentUpon>ImageTransfert.svc</DependentUpon>
     </Compile>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\ClientWeb.dll
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\ClientWeb.pdb
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ResolveAssemblyReference.cache
@@ -5,3 +6,19 @@ D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ClientWeb.dll
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ClientWeb.pdb
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\DataLib.dll
 D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\DataLib.pdb
+=======
+d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\bin\ClientWeb.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\bin\ClientWeb.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\bin\DataLib.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\bin\DataLib.pdb
+d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\obj\Debug\ResolveAssemblyReference.cache
+d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\obj\Debug\ClientWeb.dll
+d:\documents\visual studio 2010\Projects\ducking-bear\ClientWeb\obj\Debug\ClientWeb.pdb
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\ClientWeb.dll
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\ClientWeb.pdb
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\DataLib.dll
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\bin\DataLib.pdb
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ResolveAssemblyReference.cache
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ClientWeb.dll
+D:\Cours\Serv_Entr\ducking-bear\ClientWeb\obj\Debug\ClientWeb.pdb
+>>>>>>> a529dca87c596125fa131c13b67b2632836dab2b

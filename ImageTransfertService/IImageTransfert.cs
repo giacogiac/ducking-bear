@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.IO;
+using DataLib;
+using System;
+using System.Security.Principal;
+using System.Security.Permissions;
 
 namespace ImageTransfertService
 {
@@ -14,34 +17,43 @@ namespace ImageTransfertService
     public interface IImageTransfert
     {
 
-
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ErrorMessage UploadImage(ImageUploadRequest data);
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ImageDownloadResponse Download(ImageDownloadRequest data);
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "admin")]
         [OperationContract]
         ErrorMessage addUser(UserInfo info);
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "admin")]
         [OperationContract]
         ErrorMessage deleteUser(UserInfo info);
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ErrorMessage createAlbum(ImageParam param);
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ErrorMessage deleteAlbum(ImageParam param);
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ErrorMessage deleteImage(ImageParam param);
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ListResult getAllUserNames();
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ListResult getAllAlbumNames(ImageParam param);
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ListResult getAllImageName(ImageParam param);
     }
