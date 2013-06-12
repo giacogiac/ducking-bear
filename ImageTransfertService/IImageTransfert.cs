@@ -76,7 +76,7 @@ namespace ImageTransfertService
         public String pass { get; set; }
 
         [DataMember(Order = 3)]
-        public String pass { get; set; }
+        public String role { get; set; }
 
     }
 

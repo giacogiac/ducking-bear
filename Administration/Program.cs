@@ -13,7 +13,7 @@ namespace Administration
         static void Main(string[] args)
         {
             Connexion c = new Connexion();
-            c.addUser("giac", "giacpw").addAlbum("noel");
+            c.addUser("giac", "giacpw", "user").addAlbum("noel");
             
             
             c.getAllUsers();

@@ -67,7 +67,7 @@ namespace ImageTransfertService
              try
              {
                  Connexion connex = new Connexion();
-                 connex.addUser(info.data.name, info.data.pass);
+                 connex.addUser(info.data.name, info.data.pass, "user");
                  mes.message = "User added";
 
              }
