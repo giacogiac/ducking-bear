@@ -16,6 +16,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageTransfertService", "ImageTransfertService\ImageTransfertService.csproj", "{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWPF", "ClientWPF\ClientWPF.csproj", "{DD084C98-DE02-45DE-9004-E756FD5E7095}"
+	ProjectSection(ProjectDependencies) = postProject
+		{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D} = {29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAdmin", "ClientAdmin\ClientAdmin.csproj", "{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -23,9 +26,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAdmin", "ClientAdmin\
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
-		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -98,5 +98,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
 	EndGlobalSection
 EndGlobal

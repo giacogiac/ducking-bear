@@ -9,7 +9,7 @@ namespace DataLib
 {
     public class Connexion
     {
-        public const String SERVER = "X064";
+        public const String SERVER = "OPERA\\SQLEXPRESS";
         public const String DATABASE = "ducking_bear_db";
 
         private SqlConnection conn;
