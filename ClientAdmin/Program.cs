@@ -132,7 +132,11 @@ namespace ClientAdmin
 
                             case 3:
 
-                                Console.WriteLine("not implemented\n");
+                                Console.WriteLine("Enter name of the owner of the album\n");
+                                info.userid = Console.ReadLine();
+                                Console.WriteLine("Enter the name of the album to create");
+                                info.albumid = Console.ReadLine();
+                                imageTransfertService.createAlbum(info);
                                 break;
 
                             case 4:
