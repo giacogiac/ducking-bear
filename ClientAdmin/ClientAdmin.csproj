@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9A6A5D2E-7A21-4537-B855-C32D2F822693}</ProjectGuid>
+    <ProjectGuid>{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Administration</RootNamespace>
-    <AssemblyName>Administration</AssemblyName>
+    <RootNamespace>ClientAdmin</RootNamespace>
+    <AssemblyName>ClientAdmin</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -36,8 +36,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,54 +45,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ImageTransfertServiceRef\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Service References\ImageTransfertServiceRef\ImageTransfert.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ImageTransfertServiceRef\ImageTransfert1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ImageTransfertServiceRef\ImageTransfert2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ImageTransfertServiceRef\ImageTransfert3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ImageTransfertServiceRef\ImageTransfert4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ImageTransfertServiceRef\Service1.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataLib\DataLib.csproj">
-      <Project>{A77F30C7-61BD-433A-977F-819511621AD8}</Project>
-      <Name>DataLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ImageTransfertServiceRef\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ImageTransfertServiceRef\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ImageTransfertServiceRef\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ImageTransfertServiceRef\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

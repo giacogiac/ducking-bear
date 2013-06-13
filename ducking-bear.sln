@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administration", "Administration\Administration.csproj", "{9A6A5D2E-7A21-4537-B855-C32D2F822693}"
+	ProjectSection(ProjectDependencies) = postProject
+		{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D} = {29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWeb", "ClientWeb\ClientWeb.csproj", "{734E7040-D3FF-4E87-8869-CCB14EE65630}"
 EndProject
@@ -10,6 +13,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageTransfertService", "ImageTransfertService\ImageTransfertService.csproj", "{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWPF", "ClientWPF\ClientWPF.csproj", "{DD084C98-DE02-45DE-9004-E756FD5E7095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAdmin", "ClientAdmin\ClientAdmin.csproj", "{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}"
 EndProject
 Global
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
@@ -74,6 +79,16 @@ Global
 		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Release|Mixed Platforms.Build.0 = Release|x86
 		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Release|x86.ActiveCfg = Release|x86
 		{DD084C98-DE02-45DE-9004-E756FD5E7095}.Release|x86.Build.0 = Release|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Debug|x86.ActiveCfg = Debug|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Debug|x86.Build.0 = Debug|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Release|Any CPU.ActiveCfg = Release|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Release|Mixed Platforms.Build.0 = Release|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Release|x86.ActiveCfg = Release|x86
+		{E9B35ADB-FA3C-493E-B26F-EF8ADB612F09}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

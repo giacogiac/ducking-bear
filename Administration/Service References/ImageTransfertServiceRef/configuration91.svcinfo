@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="MDY71gDvYgWuzwQQ6f3z9s8xPlU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="2X9P3EUGpN9lBO9Gc9nF6yiInnQ=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IImageTransfert">
+    <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IImageTransfert1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IImageTransfert</serializedValue>
+          <serializedValue>WSHttpBinding_IImageTransfert1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>00:01:00</serializedValue>
@@ -112,7 +112,7 @@
           <serializedValue>System.ServiceModel.Configuration.NonDualMessageSecurityOverHttpElement</serializedValue>
         </property>
         <property path="/security/message/clientCredentialType" isComplexType="false" isExplicitlyDefined="true" clrType="System.ServiceModel.MessageCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>Windows</serializedValue>
+          <serializedValue>UserName</serializedValue>
         </property>
         <property path="/security/message/negotiateServiceCredential" isComplexType="false" isExplicitlyDefined="true" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>True</serializedValue>
@@ -127,7 +127,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IImageTransfert" contract="ImageTransfertServiceRef.IImageTransfert" bindingType="wsHttpBinding" address="http://localhost:37373/ImageTransfert.svc" bindingConfiguration="WSHttpBinding_IImageTransfert">
+    <endpoint name="WSHttpBinding_IImageTransfert1" contract="ImageTransfertServiceRef.IImageTransfert" bindingType="wsHttpBinding" address="http://localhost:37373/ImageTransfert.svc" bindingConfiguration="WSHttpBinding_IImageTransfert1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:37373/ImageTransfert.svc</serializedValue>
@@ -139,7 +139,7 @@
           <serializedValue>wsHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IImageTransfert</serializedValue>
+          <serializedValue>WSHttpBinding_IImageTransfert1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ImageTransfertServiceRef.IImageTransfert</serializedValue>
@@ -156,8 +156,8 @@
         <property path="/identity/userPrincipalName" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.UserPrincipalNameElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.UserPrincipalNameElement</serializedValue>
         </property>
-        <property path="/identity/userPrincipalName/value" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>X064\user</serializedValue>
+        <property path="/identity/userPrincipalName/value" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
         </property>
         <property path="/identity/servicePrincipalName" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.ServicePrincipalNameElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.ServicePrincipalNameElement</serializedValue>
@@ -180,8 +180,8 @@
         <property path="/identity/certificate" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.CertificateElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.CertificateElement</serializedValue>
         </property>
-        <property path="/identity/certificate/encodedValue" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue />
+        <property path="/identity/certificate/encodedValue" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>AwAAAAEAAAAUAAAAHECFgrBzUsRx4C1jH/PSk5dNRUggAAAAAQAAAMwCAAAwggLIMIIBsKADAgECAhAlstwoKmKKsU9zKtgXJ/yXMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNVBAMTFWR1Y2tpbmdCZWFyQ2VydGlmaWNhdDAeFw0xMzA2MDQyMjAwMDBaFw0yMzA2MTEyMjAwMDBaMCAxHjAcBgNVBAMTFWR1Y2tpbmdCZWFyQ2VydGlmaWNhdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALbtdIEUrMvblKxC6ihnDr3SqcXsh8NB9K4G+iP7Se/XZJ5j8+kzKfrmz6RoZYBBbO93v0M2Gd7e3Y1KEyFHasXMCzRkpXO07GuvHic4ACICYQNLsYJNF06B6o8pdKR1uBEoKndTI8iLe4j42ZepuqS7PaeqVLuSeTC+SQxVBTdPnXnPTcNEJ9t9jQBUGm1Zo5Yy2Gs2HilVlGIZFM7Dgne6OfTn75Ja5dBK8+34iWdBXAGi05Dd78a9YdbQF8hus4T76P6hElzUJOVExEjZBHrh08l6ZdvsRFCihqs3ssVd+1odGVVpxaRVU0A7NSvthUWkJHn7OjwWBJ/tOGuz+RECAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAsvUHo1dkdrVTGWPrABDVkSUkRkqrux0eaVqfYf9cr5B5+SUz5d4goqXbYPseWstWii0AWg8D2aJY2zHWQVs3t//ZrYDOxyc/nTgeo950HHQNTfynIObRkTOE8Drcn8mOjiHBLR2cONM2XnE3CKFHJnU/jGmxHyT1i/dxBVUBYkvyFWv5GD3Hod8b1sa4DuNPI0nbSb72mcOb9I2OgtBa1mUHnCDj0fDac6GDU74U+NK6FwactczEu6eVJX6dW6pgpjV35Pao8rngdknjSuZ/HTjLBd3FgAXYCz+skjT81H7br8TR8D5OrKc9f9cfJGwvnKKMtjmEEqbPMx5s+l+uTw==</serializedValue>
         </property>
         <property path="/identity/certificateReference" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.CertificateReferenceElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.CertificateReferenceElement</serializedValue>
@@ -202,7 +202,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IImageTransfert</serializedValue>
+          <serializedValue>WSHttpBinding_IImageTransfert1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

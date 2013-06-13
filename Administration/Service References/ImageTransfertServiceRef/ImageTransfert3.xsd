@@ -8,4 +8,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ImageInfo" nillable="true" type="tns:ImageInfo" />
+  <xs:complexType name="UserData">
+    <xs:sequence>
+      <xs:element name="name" nillable="true" type="xs:string" />
+      <xs:element name="pass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserData" nillable="true" type="tns:UserData" />
 </xs:schema>

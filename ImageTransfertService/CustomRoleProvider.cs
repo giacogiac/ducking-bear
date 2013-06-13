@@ -35,7 +35,7 @@ namespace ImageTransfertService
             {
                 throw new Exception(ex.ToString());
             }
-            return new String[] { /*XXXXXX.getRoles(username)*/ null };
+            return roles;
         }
 
         public override bool IsUserInRole(String username, String roleName)
