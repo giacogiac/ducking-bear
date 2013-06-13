@@ -16,6 +16,23 @@ namespace ImageTransfertService
     public class Service1 : IImageTransfert
     {
 
+
+
+        public void authentify(UserInfo info)
+        {
+
+
+                Connexion connex = new Connexion();
+                User user = connex.getUser(info.data.name);
+                
+                if (!user.auth(info.data.pass))
+                {
+                    throw new Exception("unknown user");
+                }
+
+        }
+
+
         [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         public ErrorMessage UploadImage(ImageUploadRequest data)
         {

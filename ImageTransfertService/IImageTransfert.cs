@@ -17,6 +17,9 @@ namespace ImageTransfertService
     public interface IImageTransfert
     {
 
+        [OperationContract]
+        void authentify(UserInfo info);
+
         [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         [OperationContract]
         ErrorMessage UploadImage(ImageUploadRequest data);
