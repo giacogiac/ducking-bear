@@ -47,6 +47,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Name="btnReturn"
+                    Width="50"
+                    Height="50"
                     Grid.Column="0"
                     Click="btnReturn_Click">
                 <Button.Effect>
@@ -58,8 +60,9 @@
             <ListBox x:Name="ListBox1"
                  Style="{StaticResource ImageListBoxStyle}"
                  DataContext="{StaticResource ImageCollection1}"
-                 PreviewMouseLeftButtonDown="ImageDragEvent"
-                 Drop="ImageDropEvent"
+                 PreviewMouseRightButtonDown="ImageDelete"
+                 PreviewMouseLeftButtonDown="ImageDragEventAlbum"
+                 Drop="ImageDropEventAlbum"
                  Grid.Column="1"/>
         </Grid>
         <GridSplitter HorizontalAlignment="Stretch"
@@ -72,6 +75,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Name="btnFolder"
+                    Width="50"
+                    Height="50"
                     Grid.Column="0"
                     Click="btnFolder_Click">
                 <Button.Effect>

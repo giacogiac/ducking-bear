@@ -24,14 +24,31 @@ namespace ClientWPF
         private ImageTransfertServiceRef.ImageTransfertClient imageTransfertService;
         ImageTransfertServiceRef.UserData userInf;
 
+        Boolean inAlbum;
+
+        private String currentPath;
+        private String currentAlbum;
+
         private ImageCollection imageCollection1;
         private ImageCollection imageCollection2;
 
         public MainWindow()
         {
+            inAlbum = false;
             imageTransfertService = new ImageTransfertServiceRef.ImageTransfertClient();
             InitializeComponent();
-            
+            ImageBrush brush1 = new ImageBrush();
+            Stream imageStreamSource = new FileStream("../../arrow.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+PngBitmapDecoder decoder = new PngBitmapDecoder(imageStreamSource, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+BitmapSource bitmapSource = decoder.Frames[0];
+brush1.ImageSource = bitmapSource;
+            btnReturn.Background = brush1;
+            ImageBrush brush2 = new ImageBrush();
+            Stream imageStreamSource2 = new FileStream("../../folder.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+            PngBitmapDecoder decoder2 = new PngBitmapDecoder(imageStreamSource2, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource2 = decoder2.Frames[0];
+            brush2.ImageSource = bitmapSource2;
+            btnFolder.Background = brush2;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -44,13 +61,23 @@ namespace ClientWPF
 
         private void loadAlbum(String albumid)
         {
+            currentAlbum = albumid;
             imageCollection1 = new ImageCollection();
-            imageCollection1.Add(new ImageObjet("celestial",
-            lireFichier(@"D:\Pictures\boobsncat2.jpg")));
-            imageCollection1.Add(new ImageObjet("pearlscale",
-            lireFichier(@"D:\Pictures\boobsncat.jpg")));
-
-            // On lie la collectionau ObjectDataProvider déclaré dans le fichier XAML
+            ImageTransfertServiceRef.ImageParam imParam = new ImageTransfertServiceRef.ImageParam();
+            imParam.info = new ImageTransfertServiceRef.ImageInfo();
+            imParam.info.userid = userInf.name;
+            imParam.info.albumid = albumid;
+            foreach (String a in imageTransfertService.getAllImageName(imParam.info))
+            {
+                imParam.info = new ImageTransfertServiceRef.ImageInfo();
+                imParam.info.userid = userInf.name;
+                imParam.info.albumid = albumid;
+                imParam.info.imageid = a;
+                Stream imgData = imageTransfertService.Download(imParam.info);
+                var memoryStream = new MemoryStream();
+                imgData.CopyTo(memoryStream);
+                imageCollection1.Add(new ImageObjet(a, memoryStream.ToArray()));
+            }
             ObjectDataProvider imageSource =
             (ObjectDataProvider)FindResource("ImageCollection1");
             imageSource.ObjectInstance = imageCollection1;
@@ -64,9 +91,12 @@ namespace ClientWPF
             imParam.info.userid = userInf.name;
             foreach (String a in imageTransfertService.getAllAlbumNames(imParam.info))
             {
-                MessageBox.Show(a);
-                imageCollection1.Add(new ImageObjet(a, lireFichier(@".\folder.png")));
+                imageCollection1.Add(new ImageObjet(a, lireFichier("../../folder.png")));
             }
+            imageCollection1.Add(new ImageObjet("Nouvel Album", lireFichier("../../plus.png")));
+            ObjectDataProvider imageSource =
+            (ObjectDataProvider)FindResource("ImageCollection1");
+            imageSource.ObjectInstance = imageCollection1;
         }
 
         private static byte[] lireFichier(string chemin)
@@ -83,27 +113,171 @@ namespace ClientWPF
 
         ListBox dragSource = null;
         // On initie le Drag and Drop
-        private void ImageDragEvent(object sender, MouseButtonEventArgs e)
+        private void ImageDelete(object sender, MouseButtonEventArgs e)
         {
-            ListBox parent = (ListBox)sender;
-            dragSource = parent;
-            object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
-            if (data != null)
+            if (inAlbum)
             {
-                DragDrop.DoDragDrop(parent, data, DragDropEffects.Move);
+                ListBox parent = (ListBox)sender;
+                dragSource = parent;
+                object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
+                if (data != null)
+                {
+                    ImageObjet img = (ImageObjet)data;
+                    ImageTransfertServiceRef.ImageParam imParam = new ImageTransfertServiceRef.ImageParam();
+                    imParam.info = new ImageTransfertServiceRef.ImageInfo();
+                    imParam.info.userid = userInf.name;
+                    imParam.info.albumid = currentAlbum;
+                    imParam.info.imageid = img.Nom;
+                    imageTransfertService.deleteImage(imParam.info);
+                    MessageBox.Show("Image deleted");
+                    ((IList)parent.ItemsSource).Remove(data);
+                }
+            }
+            else
+            {
+                ListBox parent = (ListBox)sender;
+                dragSource = parent;
+                object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
+                if (data != null)
+                {
+                    ImageObjet img = (ImageObjet)data;
+                    if (img.Nom != "Nouvel Album")
+                    {
+                        ImageTransfertServiceRef.ImageParam imParam = new ImageTransfertServiceRef.ImageParam();
+                        imParam.info = new ImageTransfertServiceRef.ImageInfo();
+                        imParam.info.userid = userInf.name;
+                        imParam.info.albumid = img.Nom;
+                        imageTransfertService.deleteAlbum(imParam.info);
+                        MessageBox.Show("Album deleted");
+                        ((IList)parent.ItemsSource).Remove(data);
+                    }
+                }
             }
         }
-        // On ajoute l'objet dans la nouvelle ListBox et on le supprime de l'ancienne
-        private void ImageDropEvent(object sender, DragEventArgs e)
+
+        private void ImageDragEventAlbum(object sender, MouseButtonEventArgs e)
         {
+            if (inAlbum)
+            {
+                ListBox parent = (ListBox)sender;
+                dragSource = parent;
+                object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
+                if (data != null)
+                {
+                    DragDrop.DoDragDrop(parent, data, DragDropEffects.Move);
+                }
+            }
+            else
+            {
+                inAlbum = true;
+                ListBox parent = (ListBox)sender;
+                dragSource = parent;
+                object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
+                if (data != null)
+                {
+                    ImageObjet img = (ImageObjet)data;
+                    if (img.Nom == "Nouvel Album")
+                    {
+                        inAlbum = false;
+                        CreateAlbum log = new CreateAlbum();
+                        log.Owner = this;
+                        log.ShowDialog();
+                        if (log.DialogResult.HasValue && log.DialogResult.Value)
+                        {
+                            ImageTransfertServiceRef.ImageParam imParam = new ImageTransfertServiceRef.ImageParam();
+                            imParam.info = new ImageTransfertServiceRef.ImageInfo();
+                            imParam.info.userid = userInf.name;
+                            imParam.info.albumid = log.txtAlbumName.Text;
+                            imageTransfertService.createAlbum(imParam.info);
+                            MessageBox.Show("Album created");
+                            loadAlbums();
+                        }
+                    }
+                    else
+                    {
+                        loadAlbum(img.Nom);
+                    }
+                }
+            }
+        }
+
+        private void ImageDragEvent(object sender, MouseButtonEventArgs e)
+        {
+            if (inAlbum)
+            {
+                ListBox parent = (ListBox)sender;
+                dragSource = parent;
+                object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
+                if (data != null)
+                {
+                    DragDrop.DoDragDrop(parent, data, DragDropEffects.Move);
+                }
+            }
+        }
+
+        // On ajoute l'objet dans la nouvelle ListBox et on le supprime de l'ancienne
+        private void ImageDropEventAlbum(object sender, DragEventArgs e)
+        {
+            if (!inAlbum)
+                return;
             ListBox parent = (ListBox)sender;
             if (((IList)dragSource.ItemsSource) != ((IList)parent.ItemsSource))
             {
                 ImageObjet data = (ImageObjet)e.Data.GetData(typeof(ImageObjet));
-                ((IList)dragSource.ItemsSource).Remove(data);
+                foreach (ImageObjet i in ((IList)parent.ItemsSource))
+                {
+                    if (i.Nom == data.Nom)
+                    {
+                        MessageBox.Show("Image en double");
+                        return;
+                    }
+                }
+                MessageBox.Show("upload");
+                MemoryStream imageStream = new MemoryStream(lireFichier(currentPath + "\\" + data.Nom + ".jpg"));
+                ImageTransfertServiceRef.ImageParam imParam = new ImageTransfertServiceRef.ImageParam();
+                imParam.info = new ImageTransfertServiceRef.ImageInfo();
+                imParam.info.userid = userInf.name;
+                imParam.info.albumid = currentAlbum;
+                imParam.info.imageid = data.Nom;
+                imageTransfertService.UploadImage(imParam.info, imageStream);
                 ((IList)parent.ItemsSource).Add(data);
             }
         }
+
+        // On ajoute l'objet dans la nouvelle ListBox et on le supprime de l'ancienne
+        private void ImageDropEvent(object sender, DragEventArgs e)
+        {
+            if (!inAlbum)
+                return;
+            ListBox parent = (ListBox)sender;
+            if (((IList)dragSource.ItemsSource) != ((IList)parent.ItemsSource))
+            {
+                ImageObjet data = (ImageObjet)e.Data.GetData(typeof(ImageObjet));
+                foreach (ImageObjet i in ((IList)parent.ItemsSource))
+                {
+                    if (i.Nom == data.Nom)
+                    {
+                        MessageBox.Show("Image en double");
+                        return;
+                    }
+                }
+                MessageBox.Show("download");
+                ImageTransfertServiceRef.ImageParam imParam = new ImageTransfertServiceRef.ImageParam();
+                imParam.info = new ImageTransfertServiceRef.ImageInfo();
+                imParam.info.userid = userInf.name;
+                imParam.info.albumid = currentAlbum;
+                imParam.info.imageid = data.Nom;
+                Stream imgData = imageTransfertService.Download(imParam.info);
+                var memoryStream = new MemoryStream();
+                imgData.CopyTo(memoryStream);
+                FileStream fileStream = new FileStream(currentPath + "\\" + data.Nom + ".jpg", FileMode.Create,
+                FileAccess.Write);
+                BinaryWriter br = new BinaryWriter(fileStream);
+                br.Write(memoryStream.ToArray());
+                ((IList)parent.ItemsSource).Add(data);
+            }
+        }
+
         // On récupére l'objet que que l'on a dropé
         private static object GetDataFromListBox(ListBox source, Point point)
         {
@@ -175,11 +349,15 @@ namespace ClientWPF
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Return");
+            if (!inAlbum)
+                return;
+            inAlbum = false;
+            loadAlbums();
         }
 
         private void loadFolder(String folder)
         {
+            currentPath = folder;
             imageCollection2 = new ImageCollection();
             foreach (string file in Directory.EnumerateFiles(folder, "*.jpg"))
             {

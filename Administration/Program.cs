@@ -31,7 +31,7 @@ namespace Administration
             ImageTransfertServiceRef.ImageInfo info = new ImageTransfertServiceRef.ImageInfo();
             info.albumid = "noel";
             info.userid = "giac";
-            info.imageid = "cul";
+            info.imageid = "boobies";
             ImageTransfertServiceRef.UserData data = new ImageTransfertServiceRef.UserData();
             data.name = "admin";
             data.pass="";
