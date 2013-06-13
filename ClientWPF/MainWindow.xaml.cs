@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,6 +41,9 @@ namespace ClientWPF
             ObjectDataProvider imageSource =
             (ObjectDataProvider)FindResource("ImageCollection1");
             imageSource.ObjectInstance = imageCollection1;
+            ObjectDataProvider imageDest =
+           (ObjectDataProvider)FindResource("ImageCollection2");
+            imageDest.ObjectInstance = imageCollection2;
         }
 
         private static byte[] lireFichier(string chemin)
@@ -52,6 +56,54 @@ namespace ClientWPF
             BinaryReader br = new BinaryReader(fileStream);
             data = br.ReadBytes(nbBytes);
             return data;
+        }
+
+        ListBox dragSource = null;
+        // On initie le Drag and Drop
+        private void ImageDragEvent(object sender, MouseButtonEventArgs e)
+        {
+            ListBox parent = (ListBox)sender;
+            dragSource = parent;
+            object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
+            if (data != null)
+            {
+                DragDrop.DoDragDrop(parent, data, DragDropEffects.Move);
+            }
+        }
+        // On ajoute l'objet dans la nouvelle ListBox et on le supprime de l'ancienne
+        private void ImageDropEvent(object sender, DragEventArgs e)
+        {
+            ListBox parent = (ListBox)sender;
+            ImageObjet data = (ImageObjet)e.Data.GetData(typeof(ImageObjet));
+            ((IList)dragSource.ItemsSource).Remove(data);
+            ((IList)parent.ItemsSource).Add(data);
+        }
+        // On récupére l'objet que que l'on a dropé
+        private static object GetDataFromListBox(ListBox source, Point point)
+        {
+            UIElement element = (UIElement)source.InputHitTest(point);
+            if (element != null)
+            {
+                object data = DependencyProperty.UnsetValue;
+                while (data == DependencyProperty.UnsetValue)
+                {
+                    data =
+                    source.ItemContainerGenerator.ItemFromContainer(element);
+                    if (data == DependencyProperty.UnsetValue)
+                    {
+                        element = (UIElement)VisualTreeHelper.GetParent(element);
+                    }
+                    if (element == source)
+                    {
+                        return null;
+                    }
+                }
+                if (data != DependencyProperty.UnsetValue)
+                {
+                    return data;
+                }
+            }
+            return null;
         }
     }
 }

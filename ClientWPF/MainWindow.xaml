@@ -6,6 +6,7 @@ Title="MainWindow" Height="620" Width="820">
     <Window.Resources>
         <local:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
         <ObjectDataProvider x:Key="ImageCollection1"/>
+        <ObjectDataProvider x:Key="ImageCollection2"/>
         <DataTemplate x:Key="ImageSourceTemplate">
             <Border Padding="5,5,5,5" Margin="5,5,5,5" BorderBrush="DarkGray"
                     BorderThickness="3" CornerRadius="5">
@@ -19,6 +20,7 @@ Title="MainWindow" Height="620" Width="820">
             </Border>
         </DataTemplate>
         <Style x:Key="ImageListBoxStyle" TargetType="ListBox">
+            <Setter Property="AllowDrop" Value="True" />
             <Setter Property="ItemsSource" Value="{Binding}" />
             <Setter Property="ItemTemplate" Value="{StaticResource ImageSourceTemplate}" />
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible" />
@@ -41,6 +43,8 @@ Title="MainWindow" Height="620" Width="820">
         <ListBox x:Name="ListBox1"
                  Style="{StaticResource ImageListBoxStyle}"
                  DataContext="{StaticResource ImageCollection1}"
+                 PreviewMouseLeftButtonDown="ImageDragEvent"
+                 Drop="ImageDropEvent"
                  Grid.Row="0"/>
         <GridSplitter HorizontalAlignment="Stretch"
                       ResizeBehavior="PreviousAndNext"
@@ -49,6 +53,8 @@ Title="MainWindow" Height="620" Width="820">
         <ListBox x:Name="ListBox2"
                  Style="{StaticResource ImageListBoxStyle}"
                  DataContext="{StaticResource ImageCollection2}"
+                 PreviewMouseLeftButtonDown="ImageDragEvent"
+                 Drop="ImageDropEvent"
                  Grid.Row="2"/>
     </Grid>
 </Window>
