@@ -12,11 +12,15 @@ namespace ClientAdmin
             Boolean quit = false; ;
             String menuConnec = "Connexion Menu : \n\n" + 
                                 "1 - Connect\n" +
+<<<<<<< HEAD
+                                "2 - ";
+=======
                                 "2 - Quit\n";
 
             ImageTransfertServiceRef.ImageTransfertClient imageTransfertService = new ImageTransfertServiceRef.ImageTransfertClient();
 
 
+>>>>>>> 70aac2810e7c837bb60b0839a757258a0823ccee
             while (!quit)
             {
                 try{
