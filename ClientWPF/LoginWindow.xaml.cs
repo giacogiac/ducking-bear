@@ -19,6 +19,8 @@ namespace ClientWPF
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public String username;
+        public String passw;
         public LoginWindow()
         {
             InitializeComponent();
@@ -32,9 +34,7 @@ namespace ClientWPF
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
-            // Write code here to authenticate user
-            // If authenticated, then set DialogResult=true
+            DialogResult = true;
             this.Close();
         }
     }

@@ -29,11 +29,11 @@
                           <wsp:Policy>
                             <sp:ProtectionToken>
                               <wsp:Policy>
-                                <sp:SpnegoContextToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                <mssp:SslContextToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient" xmlns:mssp="http://schemas.microsoft.com/ws/2005/07/securitypolicy">
                                   <wsp:Policy>
                                     <sp:RequireDerivedKeys />
                                   </wsp:Policy>
-                                </sp:SpnegoContextToken>
+                                </mssp:SslContextToken>
                               </wsp:Policy>
                             </sp:ProtectionToken>
                             <sp:AlgorithmSuite>
@@ -51,6 +51,15 @@
                             <sp:OnlySignEntireHeadersAndBody />
                           </wsp:Policy>
                         </sp:SymmetricBinding>
+                        <sp:SignedSupportingTokens>
+                          <wsp:Policy>
+                            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                              <wsp:Policy>
+                                <sp:WssUsernameToken10 />
+                              </wsp:Policy>
+                            </sp:UsernameToken>
+                          </wsp:Policy>
+                        </sp:SignedSupportingTokens>
                         <sp:Wss11>
                           <wsp:Policy />
                         </sp:Wss11>
@@ -175,12 +184,317 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_addUser_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_addUser_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_deleteUser_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_deleteUser_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_createAlbum_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_createAlbum_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_deleteAlbum_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_deleteAlbum_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_deleteImage_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_deleteImage_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_getAllUserNames_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_getAllUserNames_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_getAllAlbumNames_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_getAllAlbumNames_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_getAllImageName_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IImageTransfert_getAllImageName_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:37373/ImageTransfert.svc?xsd=xsd1" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:37373/ImageTransfert.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/Message" />
       <xsd:import schemaLocation="http://localhost:37373/ImageTransfert.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:37373/ImageTransfert.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ImageTransfertService" />
+      <xsd:import schemaLocation="http://localhost:37373/ImageTransfert.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ImageUploadRequest">
@@ -189,21 +503,65 @@
   <wsdl:message name="ImageUploadRequest_Headers">
     <wsdl:part name="ImageInfo" element="tns:ImageInfo" />
   </wsdl:message>
-  <wsdl:message name="IImageTransfert_UploadImage_OutputMessage" />
+  <wsdl:message name="ErrorMessage">
+    <wsdl:part name="parameters" element="tns:ErrorMessage" />
+  </wsdl:message>
   <wsdl:message name="ImageDownloadRequest">
     <wsdl:part name="parameters" element="tns:ImageDownloadRequest" />
   </wsdl:message>
   <wsdl:message name="ImageDownloadResponse">
     <wsdl:part name="parameters" element="tns:ImageDownloadResponse" />
   </wsdl:message>
+  <wsdl:message name="UserInfo">
+    <wsdl:part name="parameters" element="tns:UserInfo" />
+  </wsdl:message>
+  <wsdl:message name="ImageParam">
+    <wsdl:part name="parameters" element="tns:ImageParam" />
+  </wsdl:message>
+  <wsdl:message name="IImageTransfert_getAllUserNames_InputMessage" />
+  <wsdl:message name="ListResult">
+    <wsdl:part name="parameters" element="tns:ListResult" />
+  </wsdl:message>
   <wsdl:portType name="IImageTransfert">
     <wsdl:operation name="UploadImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/UploadImage" name="ImageUploadRequest" message="tns:ImageUploadRequest" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/UploadImageResponse" message="tns:IImageTransfert_UploadImage_OutputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/UploadImageResponse" name="ErrorMessage" message="tns:ErrorMessage" />
     </wsdl:operation>
     <wsdl:operation name="Download">
       <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/Download" name="ImageDownloadRequest" message="tns:ImageDownloadRequest" />
       <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/DownloadResponse" name="ImageDownloadResponse" message="tns:ImageDownloadResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/addUser" name="UserInfo" message="tns:UserInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/addUserResponse" name="ErrorMessage" message="tns:ErrorMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/deleteUser" name="UserInfo" message="tns:UserInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/deleteUserResponse" name="ErrorMessage" message="tns:ErrorMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createAlbum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/createAlbum" name="ImageParam" message="tns:ImageParam" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/createAlbumResponse" name="ErrorMessage" message="tns:ErrorMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAlbum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/deleteAlbum" name="ImageParam" message="tns:ImageParam" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/deleteAlbumResponse" name="ErrorMessage" message="tns:ErrorMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/deleteImage" name="ImageParam" message="tns:ImageParam" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/deleteImageResponse" name="ErrorMessage" message="tns:ErrorMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllUserNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/getAllUserNames" message="tns:IImageTransfert_getAllUserNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/getAllUserNamesResponse" name="ListResult" message="tns:ListResult" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllAlbumNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/getAllAlbumNames" name="ImageParam" message="tns:ImageParam" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/getAllAlbumNamesResponse" name="ListResult" message="tns:ListResult" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllImageName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageTransfert/getAllImageName" name="ImageParam" message="tns:ImageParam" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageTransfert/getAllImageNameResponse" name="ListResult" message="tns:ListResult" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IImageTransfert" type="tns:IImageTransfert">
@@ -216,7 +574,7 @@
         <soap12:header message="tns:ImageUploadRequest_Headers" part="ImageInfo" use="literal" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
+      <wsdl:output name="ErrorMessage">
         <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_UploadImage_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
@@ -232,6 +590,94 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap12:operation soapAction="http://tempuri.org/IImageTransfert/addUser" style="document" />
+      <wsdl:input name="UserInfo">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_addUser_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ErrorMessage">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_addUser_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap12:operation soapAction="http://tempuri.org/IImageTransfert/deleteUser" style="document" />
+      <wsdl:input name="UserInfo">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_deleteUser_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ErrorMessage">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_deleteUser_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAlbum">
+      <soap12:operation soapAction="http://tempuri.org/IImageTransfert/createAlbum" style="document" />
+      <wsdl:input name="ImageParam">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_createAlbum_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ErrorMessage">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_createAlbum_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAlbum">
+      <soap12:operation soapAction="http://tempuri.org/IImageTransfert/deleteAlbum" style="document" />
+      <wsdl:input name="ImageParam">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_deleteAlbum_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ErrorMessage">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_deleteAlbum_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteImage">
+      <soap12:operation soapAction="http://tempuri.org/IImageTransfert/deleteImage" style="document" />
+      <wsdl:input name="ImageParam">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_deleteImage_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ErrorMessage">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_deleteImage_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUserNames">
+      <soap12:operation soapAction="http://tempuri.org/IImageTransfert/getAllUserNames" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_getAllUserNames_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListResult">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_getAllUserNames_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllAlbumNames">
+      <soap12:operation soapAction="http://tempuri.org/IImageTransfert/getAllAlbumNames" style="document" />
+      <wsdl:input name="ImageParam">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_getAllAlbumNames_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListResult">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_getAllAlbumNames_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllImageName">
+      <soap12:operation soapAction="http://tempuri.org/IImageTransfert/getAllImageName" style="document" />
+      <wsdl:input name="ImageParam">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_getAllImageName_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListResult">
+        <wsp:PolicyReference URI="#WSHttpBinding_IImageTransfert_getAllImageName_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service1">
     <wsdl:port name="WSHttpBinding_IImageTransfert" binding="tns:WSHttpBinding_IImageTransfert">
@@ -239,7 +685,11 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:37373/ImageTransfert.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>X064\user</Upn>
+          <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <X509Data>
+              <X509Certificate>MIICyDCCAbCgAwIBAgIQJbLcKCpiirFPcyrYFyf8lzANBgkqhkiG9w0BAQUFADAgMR4wHAYDVQQDExVkdWNraW5nQmVhckNlcnRpZmljYXQwHhcNMTMwNjA0MjIwMDAwWhcNMjMwNjExMjIwMDAwWjAgMR4wHAYDVQQDExVkdWNraW5nQmVhckNlcnRpZmljYXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC27XSBFKzL25SsQuooZw690qnF7IfDQfSuBvoj+0nv12SeY/PpMyn65s+kaGWAQWzvd79DNhne3t2NShMhR2rFzAs0ZKVztOxrrx4nOAAiAmEDS7GCTRdOgeqPKXSkdbgRKCp3UyPIi3uI+NmXqbqkuz2nqlS7knkwvkkMVQU3T515z03DRCfbfY0AVBptWaOWMthrNh4pVZRiGRTOw4J3ujn05++SWuXQSvPt+IlnQVwBotOQ3e/GvWHW0BfIbrOE++j+oRJc1CTlRMRI2QR64dPJemXb7ERQooarN7LFXftaHRlVacWkVVNAOzUr7YVFpCR5+zo8FgSf7Thrs/kRAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBALL1B6NXZHa1Uxlj6wAQ1ZElJEZKq7sdHmlan2H/XK+QefklM+XeIKKl22D7HlrLVootAFoPA9miWNsx1kFbN7f/2a2AzscnP504HqPedBx0DU38pyDm0ZEzhPA63J/Jjo4hwS0dnDjTNl5xNwihRyZ1P4xpsR8k9Yv3cQVVAWJL8hVr+Rg9x6HfG9bGuA7jTyNJ20m+9pnDm/SNjoLQWtZlB5wg49Hw2nOhg1O+FPjSuhcGnLXMxLunlSV+nVuqYKY1d+T2qPK54HZJ40rmfx04ywXdxYAF2As/rJI0/NR+26/E0fA+TqynPX/XHyRsL5yijLY5hBKmzzMebPpfrk8=</X509Certificate>
+            </X509Data>
+          </KeyInfo>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

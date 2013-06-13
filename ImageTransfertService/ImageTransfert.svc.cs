@@ -16,6 +16,7 @@ namespace ImageTransfertService
     public class Service1 : IImageTransfert
     {
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         public ErrorMessage UploadImage(ImageUploadRequest data)
         {
             ErrorMessage mes = new ErrorMessage();
@@ -42,6 +43,7 @@ namespace ImageTransfertService
             return mes;
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         public ImageDownloadResponse Download(ImageDownloadRequest data)
         {
             try{
@@ -60,6 +62,7 @@ namespace ImageTransfertService
             }
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "admin")]
          public ErrorMessage addUser(UserInfo info)
          {
              ErrorMessage mes = new ErrorMessage();
@@ -79,6 +82,7 @@ namespace ImageTransfertService
              return mes;
          }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "admin")]
          public ErrorMessage deleteUser(UserInfo info)
          {
              ErrorMessage mes = new ErrorMessage();
@@ -98,6 +102,7 @@ namespace ImageTransfertService
              return mes;
          }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
         public ErrorMessage createAlbum(ImageParam param)
          {
              ErrorMessage mes = new ErrorMessage();
@@ -118,6 +123,7 @@ namespace ImageTransfertService
              return mes;
          }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
          public ErrorMessage deleteAlbum(ImageParam param)
          {
              ErrorMessage mes = new ErrorMessage();
@@ -138,6 +144,7 @@ namespace ImageTransfertService
              return mes;
          }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
          public ErrorMessage deleteImage(ImageParam param)
          {
              ErrorMessage mes = new ErrorMessage();
@@ -159,6 +166,7 @@ namespace ImageTransfertService
              return mes;
          }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
          public ListResult getAllUserNames()
          {
              ListResult res = new ListResult();
@@ -179,6 +187,7 @@ namespace ImageTransfertService
              return res;
          }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
          public ListResult getAllAlbumNames(ImageParam param)
          {
              ListResult res = new ListResult();
@@ -201,6 +210,7 @@ namespace ImageTransfertService
              return res;
          }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "user")]
          public ListResult getAllImageName(ImageParam param)
          {
              ListResult res = new ListResult();

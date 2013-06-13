@@ -1,8 +1,9 @@
 ﻿<Window x:Class="ClientWPF.MainWindow"
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-xmlns:local="clr-namespace:ClientWPF"
-Title="MainWindow" Height="620" Width="820">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ClientWPF"
+        Title="ClientWPF" Height="620" Width="820"
+        Loaded="Window_Loaded">
     <Window.Resources>
         <local:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
         <ObjectDataProvider x:Key="ImageCollection1"/>
@@ -40,21 +41,51 @@ Title="MainWindow" Height="620" Width="820">
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ListBox x:Name="ListBox1"
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Name="btnReturn"
+                    Grid.Column="0"
+                    Click="btnReturn_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="Gray"
+                              Opacity=".50"
+                              ShadowDepth="8" />
+                </Button.Effect>
+            </Button>
+            <ListBox x:Name="ListBox1"
                  Style="{StaticResource ImageListBoxStyle}"
                  DataContext="{StaticResource ImageCollection1}"
                  PreviewMouseLeftButtonDown="ImageDragEvent"
                  Drop="ImageDropEvent"
-                 Grid.Row="0"/>
+                 Grid.Column="1"/>
+        </Grid>
         <GridSplitter HorizontalAlignment="Stretch"
                       ResizeBehavior="PreviousAndNext"
                       Height="5"
                       Grid.Row="1"/>
-        <ListBox x:Name="ListBox2"
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Name="btnFolder"
+                    Grid.Column="0"
+                    Click="btnFolder_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="Gray"
+                              Opacity=".50"
+                              ShadowDepth="8" />
+                </Button.Effect>
+            </Button>
+            <ListBox x:Name="ListBox2"
                  Style="{StaticResource ImageListBoxStyle}"
                  DataContext="{StaticResource ImageCollection2}"
                  PreviewMouseLeftButtonDown="ImageDragEvent"
                  Drop="ImageDropEvent"
-                 Grid.Row="2"/>
+                 Grid.Column="1"/>
+        </Grid>
     </Grid>
 </Window>

@@ -13,26 +13,34 @@ namespace Administration
         static void Main(string[] args)
         {
             Connexion c = new Connexion();
-            c.addUser("giac", "giacpw", "user").addAlbum("noel");
-            
-            
-            c.getAllUsers();
-            c.getUser("gwenn");
+            //c.addUser("giac", "giacpw", "user").addAlbum("noel");
+            String rol = c.getUser("admin").getRole();
+            Console.WriteLine("salut " + rol);
+            //c.getAllUsers();
+            //c.getUser("gwenn");
             Console.WriteLine("Administration terminal : ");
             // Instanciation de la référence de service 
             ImageTransfertServiceRef.ImageTransfertClient imageTransfertService = new ImageTransfertServiceRef.ImageTransfertClient();
-            MemoryStream imageStream = new MemoryStream(lireFichier(@"D:\Pictures\cul.jpg"));
+
+            imageTransfertService.ClientCredentials.UserName.UserName = "userTest";
+            imageTransfertService.ClientCredentials.UserName.Password = "pw";
+
+            MemoryStream imageStream = new MemoryStream(lireFichier(@"C:\fichier.jpg"));
             Console.WriteLine("Image read from disk");
             // Appel de notre web method 
             ImageTransfertServiceRef.ImageInfo info = new ImageTransfertServiceRef.ImageInfo();
             info.albumid = "noel";
             info.userid = "giac";
             info.imageid = "cul";
-
-            imageTransfertService.UploadImage(info, imageStream);
+            ImageTransfertServiceRef.UserData data = new ImageTransfertServiceRef.UserData();
+            data.name = "admin";
+            data.pass="";
+            imageTransfertService.deleteUser(data);
+            //imageTransfertService.UploadImage(info, imageStream);
 
             Console.Out.WriteLine("Transfert Terminé");
             
+
             Console.ReadLine();
         }
 

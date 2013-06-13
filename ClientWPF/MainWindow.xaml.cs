@@ -23,27 +23,40 @@ namespace ClientWPF
     {
         private ImageCollection imageCollection1;
         private ImageCollection imageCollection2;
+
+        private String username;
+
         public MainWindow()
         {
             InitializeComponent();
-            // On crée notre collection d'image et on y ajoute deux images
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DisplayLoginScreen();
+
+            loadFolder(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
+            
+        }
+
+        private void loadAlbum(String albumid)
+        {
             imageCollection1 = new ImageCollection();
             imageCollection1.Add(new ImageObjet("celestial",
             lireFichier(@"D:\Pictures\boobsncat2.jpg")));
             imageCollection1.Add(new ImageObjet("pearlscale",
             lireFichier(@"D:\Pictures\boobsncat.jpg")));
-            imageCollection2 = new ImageCollection();
-            imageCollection2.Add(new ImageObjet("celestial",
-            lireFichier(@"D:\Pictures\boobs1.jpg")));
-            imageCollection2.Add(new ImageObjet("pearlscale",
-            lireFichier(@"D:\Pictures\boobs2.jpg")));
+
             // On lie la collectionau ObjectDataProvider déclaré dans le fichier XAML
             ObjectDataProvider imageSource =
             (ObjectDataProvider)FindResource("ImageCollection1");
             imageSource.ObjectInstance = imageCollection1;
-            ObjectDataProvider imageDest =
-           (ObjectDataProvider)FindResource("ImageCollection2");
-            imageDest.ObjectInstance = imageCollection2;
+        }
+
+        private void loadAlbums()
+        {
+            imageCollection1 = new ImageCollection();
+
         }
 
         private static byte[] lireFichier(string chemin)
@@ -74,9 +87,12 @@ namespace ClientWPF
         private void ImageDropEvent(object sender, DragEventArgs e)
         {
             ListBox parent = (ListBox)sender;
-            ImageObjet data = (ImageObjet)e.Data.GetData(typeof(ImageObjet));
-            ((IList)dragSource.ItemsSource).Remove(data);
-            ((IList)parent.ItemsSource).Add(data);
+            if (((IList)dragSource.ItemsSource) != ((IList)parent.ItemsSource))
+            {
+                ImageObjet data = (ImageObjet)e.Data.GetData(typeof(ImageObjet));
+                ((IList)dragSource.ItemsSource).Remove(data);
+                ((IList)parent.ItemsSource).Add(data);
+            }
         }
         // On récupére l'objet que que l'on a dropé
         private static object GetDataFromListBox(ListBox source, Point point)
@@ -104,6 +120,63 @@ namespace ClientWPF
                 }
             }
             return null;
+        }
+
+        private void DisplayLoginScreen()
+        {
+            LoginWindow log = new LoginWindow();
+
+            log.Owner = this;
+            log.ShowDialog();
+            if (log.DialogResult.HasValue && log.DialogResult.Value)
+            {
+                String u = log.txtUserName.Text;
+                String p = log.txtPassword.Password;
+                if (u == p)
+                {
+                    username = u;
+                }
+                else
+                {
+                    MessageBox.Show("Bad password");
+                    DisplayLoginScreen();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void btnFolder_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                loadFolder(folderBrowserDialog1.SelectedPath);
+            }
+
+
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Return");
+        }
+
+        private void loadFolder(String folder)
+        {
+            imageCollection2 = new ImageCollection();
+            foreach (string file in Directory.EnumerateFiles(folder, "*.jpg"))
+            {
+                FileInfo fileInfo = new FileInfo(file);
+                imageCollection2.Add(new ImageObjet(System.IO.Path.GetFileNameWithoutExtension(fileInfo.Name),
+                lireFichier(file)));
+            }
+            // On lie la collectionau ObjectDataProvider déclaré dans le fichier XAML
+            ObjectDataProvider imageDest =
+           (ObjectDataProvider)FindResource("ImageCollection2");
+            imageDest.ObjectInstance = imageCollection2;
         }
     }
 }
