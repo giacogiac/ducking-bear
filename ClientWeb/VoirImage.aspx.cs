@@ -11,8 +11,9 @@ namespace ClientWeb
     {
         protected void Visualiser_Click(object sender, EventArgs e)
         {
-            ImageCourante.ImageUrl = "Image.aspx?userid=" + UseridBox.Text
-                + "&albumid=" + AlbumidBox.Text + "&pictureid=" + ImageidBox.Text;
+            string album = AlbumidBox.Text;
+            string img = ImageidBox.Text;
+            ImageCourante.ImageUrl = "Image.aspx?albumid=" + album + "&pictureid=" + img;
         }
 
         protected void Page_Load(object sender, EventArgs e)

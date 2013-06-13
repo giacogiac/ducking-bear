@@ -10,21 +10,24 @@
     <form id="form1" runat="server">
     <div>
         <p>
-        Salut <%
+        Status : <%
             // Si la variable de session user est non nulle,
             // on "écrit" sa valeur dans la page HTML que l'on génère
             if (Session["user"] != null)
             {
                 Response.Write(Session["user"]);
+                Response.Write( " pass " + Session["pass"] );
             }
             else
             {
-                Response.Write("inconnu");
+                Response.Write("connexion not sucessful");
             } %>
         </p>
         <p>
             Nom :
             <asp:TextBox ID="UserTextBox" runat="server" />
+            Password : 
+            <asp:TextBox ID="PwTextBox" runat="server" />
             <asp:Button ID="UserBouton" runat="server" OnClick="Authentifier_Click"
             Text="Ok" />
         </p>

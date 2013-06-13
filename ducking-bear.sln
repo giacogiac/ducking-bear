@@ -7,6 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administration", "Administr
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWeb", "ClientWeb\ClientWeb.csproj", "{734E7040-D3FF-4E87-8869-CCB14EE65630}"
+	ProjectSection(ProjectDependencies) = postProject
+		{29D8438B-0773-4AAD-BDC6-5BA2BCB6457D} = {29D8438B-0773-4AAD-BDC6-5BA2BCB6457D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "DataLib\DataLib.csproj", "{A77F30C7-61BD-433A-977F-819511621AD8}"
 EndProject
