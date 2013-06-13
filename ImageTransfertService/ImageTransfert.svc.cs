@@ -37,6 +37,9 @@ namespace ImageTransfertService
         public ErrorMessage UploadImage(ImageUploadRequest data)
         {
             ErrorMessage mes = new ErrorMessage();
+
+
+
             try
             {
                 // Stocker l’image en BDD 
@@ -46,7 +49,19 @@ namespace ImageTransfertService
                 imageBytes = imageStreamEnMemoire.ToArray();
 
                 Connexion connex = new Connexion();
-                connex.getUser(data.ImageInfo.userid).getAlbum(data.ImageInfo.albumid).addImage(data.ImageInfo.imageid, imageBytes);
+                User user = connex.getUser(data.ImageInfo.userid);
+
+                OperationContext oc = OperationContext.Current;
+                ServiceSecurityContext ssc = oc.ServiceSecurityContext;
+                String username = ssc.PrimaryIdentity.Name;
+
+                if (!username.Equals(data.ImageInfo.userid) && !user.getRole().Equals("admin"))
+                {
+                    throw new Exception("you can only modify your own account");
+                }
+
+                user.getAlbum(data.ImageInfo.albumid).addImage(data.ImageInfo.imageid, imageBytes);
+
                 imageStreamEnMemoire.Close();
                 data.ImageData.Close();
                 
@@ -124,10 +139,22 @@ namespace ImageTransfertService
          {
              ErrorMessage mes = new ErrorMessage();
 
+
+
              try
              {
                  Connexion connex = new Connexion();
                  User user = connex.getUser(param.info.userid);
+
+                 OperationContext oc = OperationContext.Current;
+                 ServiceSecurityContext ssc = oc.ServiceSecurityContext;
+                 String username = ssc.PrimaryIdentity.Name;
+
+                 if (!username.Equals(param.info.userid) && !user.getRole().Equals("admin"))
+                 {
+                     throw new Exception("you can only modify your own account");
+                 }
+
                  user.addAlbum(param.info.albumid);
                  mes.message = "Album added";
 
@@ -145,11 +172,22 @@ namespace ImageTransfertService
          {
              ErrorMessage mes = new ErrorMessage();
 
+
              try
              {
                  Connexion connex = new Connexion();
                  User user = connex.getUser(param.info.userid);
-                 //user.removeAlbum
+
+                 OperationContext oc = OperationContext.Current;
+                 ServiceSecurityContext ssc = oc.ServiceSecurityContext;
+                 String username = ssc.PrimaryIdentity.Name;
+
+                 if (!username.Equals(param.info.userid) && !user.getRole().Equals("admin"))
+                 {
+                     throw new Exception("you can only modify your own account");
+                 }
+
+                 user.removeAlbum(param.info.albumid);
                  mes.message = "Album removed";
 
              }
@@ -166,12 +204,23 @@ namespace ImageTransfertService
          {
              ErrorMessage mes = new ErrorMessage();
 
+
              try
              {
                  Connexion connex = new Connexion();
                  User user = connex.getUser(param.info.userid);
+
+                 OperationContext oc = OperationContext.Current;
+                 ServiceSecurityContext ssc = oc.ServiceSecurityContext;
+                 String username = ssc.PrimaryIdentity.Name;
+
+                 if (!username.Equals(param.info.userid) && !user.getRole().Equals("admin"))
+                 {
+                     throw new Exception("you can only modify your own account");
+                 }
+
                  Album album = user.getAlbum(param.info.albumid);
-                 //album.removeImage
+                 album.removeImage(param.info.imageid);
                  mes.message = "Image removed";
 
              }
@@ -237,7 +286,7 @@ namespace ImageTransfertService
                  User user = connex.getUser(param.info.userid);
                  List<String> strings = new List<string>();
                  Album album = user.getAlbum(param.info.albumid);
-                 //strings = album.getAllImageNames();
+                 strings = album.getAllImages();
                  res.names = strings;
              }
              catch (Exception ex)
