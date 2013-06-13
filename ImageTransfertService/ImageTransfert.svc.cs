@@ -82,6 +82,18 @@ namespace ImageTransfertService
                 // Récupérer l'image stockée en BDD et la transférer au client 
                 byte[] imageBytes = null;
                 Connexion connex = new Connexion();
+
+                User user = connex.getUser(data.ImageInfo.userid);
+
+                OperationContext oc = OperationContext.Current;
+                ServiceSecurityContext ssc = oc.ServiceSecurityContext;
+                String username = ssc.PrimaryIdentity.Name;
+
+                if (!username.Equals(data.ImageInfo.userid) && !user.getRole().Equals("admin"))
+                {
+                    throw new Exception("you can only modify your own account");
+                }
+
                 imageBytes = connex.getUser(data.ImageInfo.userid).getAlbum(data.ImageInfo.albumid).getImage(data.ImageInfo.imageid);
                 MemoryStream imageStreamEnMemoire = new MemoryStream(imageBytes);
                 ImageDownloadResponse res = new ImageDownloadResponse();
