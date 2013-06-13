@@ -21,21 +21,24 @@ namespace ClientWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ImageTransfertServiceRef.ImageTransfertClient imageTransfertService;
+        ImageTransfertServiceRef.UserData userInf;
+
         private ImageCollection imageCollection1;
         private ImageCollection imageCollection2;
 
-        private String username;
-
         public MainWindow()
         {
+            imageTransfertService = new ImageTransfertServiceRef.ImageTransfertClient();
             InitializeComponent();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DisplayLoginScreen();
-
             loadFolder(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
+            loadAlbums();
             
         }
 
@@ -56,7 +59,14 @@ namespace ClientWPF
         private void loadAlbums()
         {
             imageCollection1 = new ImageCollection();
-
+            ImageTransfertServiceRef.ImageParam imParam = new ImageTransfertServiceRef.ImageParam();
+            imParam.info = new ImageTransfertServiceRef.ImageInfo();
+            imParam.info.userid = userInf.name;
+            foreach (String a in imageTransfertService.getAllAlbumNames(imParam.info))
+            {
+                MessageBox.Show(a);
+                imageCollection1.Add(new ImageObjet(a, lireFichier(@".\folder.png")));
+            }
         }
 
         private static byte[] lireFichier(string chemin)
@@ -130,13 +140,17 @@ namespace ClientWPF
             log.ShowDialog();
             if (log.DialogResult.HasValue && log.DialogResult.Value)
             {
-                String u = log.txtUserName.Text;
-                String p = log.txtPassword.Password;
-                if (u == p)
+                imageTransfertService.ClientCredentials.UserName.UserName = log.txtUserName.Text;
+                imageTransfertService.ClientCredentials.UserName.Password = log.txtPassword.Password;
+                try
                 {
-                    username = u;
+                    userInf = new ImageTransfertServiceRef.UserData();
+                    userInf.name = log.txtUserName.Text;
+                    userInf.pass = log.txtPassword.Password;
+                    imageTransfertService.authentify(userInf);
+                    MessageBox.Show("Logged in");
                 }
-                else
+                catch (Exception)
                 {
                     MessageBox.Show("Bad password");
                     DisplayLoginScreen();
