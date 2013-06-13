@@ -10,8 +10,7 @@
     <form id="form1" runat="server">
     <div>
         <p>
-            UserID&nbsp;AlbumID&nbsp;PictureID&nbsp;:&nbsp;
-            <asp:TextBox ID="UseridBox" runat="server" />
+            AlbumID&nbsp;PictureID&nbsp;:&nbsp;
             <asp:TextBox ID="AlbumidBox" runat="server" />
             <asp:TextBox ID="ImageidBox" runat="server" />
             <asp:Button ID="Visualiser" runat="server" OnClick="Visualiser_Click"
